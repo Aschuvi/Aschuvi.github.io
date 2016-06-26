@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="UTF-8">
+		
+        <title>Aschuvi - Overwatch</title>
+        
+        <!-- Bootstrap -->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+        
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+        
+        <script type="text/javascript" src="js/loader.js"></script>
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="js/scriptsIndex.js"></script>
+        
+        <script type="text/javascript">
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(initialization);
+        </script>
+    </head>
+
+    <body>
+    <!-- HEADER -->
+        <header class="col-md-12">
+            <div id="header-infos">
+                <img src="img/vspa.png">
+                <h1>Aschuvi</h1><h2>&nbsp;- Overwatch stats</h2>
+            </div>
+            <div id="menu">
+                <a class="menu-item" onclick="showHome()">
+                    <img src="img/menu/home1.png" class="basic">
+                    <img src="img/menu/home2.png" class="hover">
+                    <div class="menu-title">home</div>
+                </a>
+                <a class="menu-item" id="statsByHeroes" href="stats.html#heroes">
+                    <img src="img/menu/hero1.png" class="basic">
+                    <img src="img/menu/hero2.png" class="hover">
+                    <div class="menu-title">By hero</div>
+                </a>
+                <a class="menu-item" id="statsByRoles" href="stats.html#roles">
+                    <img src="img/menu/roles1.png" class="basic">
+                    <img src="img/menu/roles2.png" class="hover">
+                    <div class="menu-title">By role</div>
+                </a>
+                <a class="menu-item" href="about_us.html">
+                    <img src="img/menu/about_us1.png" class="basic">
+                    <img src="img/menu/about_us2.png" class="hover">
+                    <div class="menu-title">about us</div>
+                </a>
+            </div>
+        </header>
+    <!-- CORPS DE PAGE -->
+        <div id="container" class="col-md-12">
+    <!-- HOME CONTENT -->
+            <div class="row" id="home-content">
+        <!-- PLAYTIME BY ROLE -->
+                <div class="col-md-4">
+                    <div class="data-wrapper">
+                        <div class="data-title">
+                            Playtime by role
+                        </div>
+                        <div id="playtimeByRole" class="data-content">      
+                        </div>
+                    </div>
+                </div>
+        <!-- OVERALL STATS -->
+                <div class="col-md-8">
+                    <div class="data-wrapper">
+                        <div class="data-title">
+                            Overall performance
+                        </div>
+                        <div class="data-content row">
+                            <div class="data-number col-xs-3" id="overallWL">
+                                <span class="data-number-overall"></span>
+                                <span class="data-number-avg"></span>
+                                <span class="data-number-info">win/loose</span>
+                            </div>
+                            <div class="data-number col-xs-3" id="overallE">
+                                <span class="data-number-overall"></span>
+                                <span class="data-number-avg"></span>
+                                <span class="data-number-info">eliminations</span>
+                            </div>
+                            <div class="data-number col-xs-3" id="overallD">
+                                <span class="data-number-overall"></span>
+                                <span class="data-number-avg"></span>
+                                <span class="data-number-info">deaths</span>
+                            </div>
+                            <div class="data-number col-xs-3" id="overallM">
+                                <span class="data-number-overall"></span>
+                                <span class="data-number-avg"></span>
+                                <span class="data-number-info">medals</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- OVERALL HEROES STATS -->
+            <div class="row" id="heroes-overall-stats">
+            </div>
+        </div>
+    </body>
+</html>

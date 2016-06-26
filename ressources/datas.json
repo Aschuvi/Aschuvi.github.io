@@ -1,0 +1,12 @@
+{
+    "nom": ["Faucheur", "Genji", "Mc Cree", "Pharah", "Soldat 76", "Tracer", "Bastion", "Chacal", "Fatale", "Hanzo", "Mei", "Torbjörn", "Chopper", "D.Va", "Reinhardt", "Winston", "Zarya", "Ange", "Lucio", "Symmetra", "Zenyatta"],
+    "role": ["offense", "offense", "offense", "offense", "offense", "offense", "defense", "defense", "defense", "defense", "defense", "defense", "tank", "tank", "tank", "tank", "tank", "support", "support", "support", "support"],
+    "time": [1, 2, 5, 6, 6, 2, 0.4, 3, 2, 1, 11, 0.4, 3, 0.25, 2, 1, 0.2, 0.8, 2, 0.6, 0.9],
+    "wins": [4, 9, 22, 21, 27, 11, 1, 8, 7, 7, 55, 1, 13, 1, 6, 5, 0, 2, 12, 5, 4],
+    "looses": [9, 8, 20, 26, 27, 11, 2, 18, 10, 8, 35, 2, 13, 2, 11, 6, 1, 3, 7, 1, 4],
+    "eliminations": [124, 180, 540, 717, 825, 325, 35, 372, 237, 181, 1271, 36, 323, 21, 174, 192, 11, 21, 244, 48, 48],
+    "deaths": [87, 138, 329, 366, 395, 183, 30, 218, 94, 93, 517, 22, 166, 13, 104, 92, 11, 41, 137, 19, 48],
+    "gold": [10, 15, 32, 47, 111, 21, 2, 39, 14, 13, 134, 3, 38, 2, 21, 10, 1, 8, 28, 5, 10],
+    "silver": [17, 14, 35, 49, 90, 25, 3, 29, 19, 13, 126, 4, 40, 5,  13, 10, 2, 2, 10, 4, 5],
+    "bronze": [17, 16, 45, 46, 47, 20, 3, 23, 16, 15, 97, 3, 25, 3, 11, 8, 1, 2, 17, 2, 4]
+}

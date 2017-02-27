@@ -1,119 +1,31 @@
 <!DOCTYPE html>
 <html>
     <head>
-		<meta charset="UTF-8">
-		
-        <title>Aschuvi - Overwatch</title>
+        <meta charset="utf-8"/>
+        <title>Aschuvi - mySite</title>
         
-        <!-- Bootstrap -->
-        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,400italic,500,700,900' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Raleway:900,700,500,400,300' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Titillium+Web:300,400,500,900' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+		<link rel="stylesheet" type="text/css" href="css/stylesheet.css" >
         
-        <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,300' rel='stylesheet' type='text/css'>
-        <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
-        
-        <script type="text/javascript" src="js/loader.js"></script>
-        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-        <script type="text/javascript" src="js/scriptsIndex.js"></script>
-        
-        <script type="text/javascript">
-            google.charts.load('current', {'packages':['corechart']});
-            google.charts.setOnLoadCallback(initialization);
-        </script>
+        <script src="js/jquery-2.1.4.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+<!--        <script src="js/npm.js" type="text/javascript"></script>-->
     </head>
-
     <body>
-    <!-- HEADER -->
-        <header class="col-md-12">
-            <div id="header-infos">
-                <img src="img/vspa.png">
-                <h1>Aschuvi</h1><h2>&nbsp;- Overwatch stats</h2>
-            </div>
-            <div id="menu">
-                <a class="menu-item" onclick="showHome()">
-                    <img src="img/menu/home1.png" class="basic">
-                    <img src="img/menu/home2.png" class="hover">
-                    <div class="menu-title">home</div>
-                </a>
-                <a class="menu-item" id="statsByHeroes" href="stats.html#heroes">
-                    <img src="img/menu/hero1.png" class="basic">
-                    <img src="img/menu/hero2.png" class="hover">
-                    <div class="menu-title">By hero</div>
-                </a>
-                <a class="menu-item" id="statsByRoles" href="stats.html#roles">
-                    <img src="img/menu/roles1.png" class="basic">
-                    <img src="img/menu/roles2.png" class="hover">
-                    <div class="menu-title">By role</div>
-                </a>
-                <a class="menu-item" href="about_us.html">
-                    <img src="img/menu/about_us1.png" class="basic">
-                    <img src="img/menu/about_us2.png" class="hover">
-                    <div class="menu-title">about us</div>
-                </a>
-            </div>
-        </header>
-    <!-- CORPS DE PAGE -->
-        <div id="container" class="col-md-12">
-    <!-- HOME CONTENT -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="data-wrapper">
-                        <div class="data-title">
-                            Présentation du site
-                        </div>
-                        <div class="data-content row">
-                            <div class="data-number-overall col-md-12">
-                                <p>Ces statistiques sont issues d'un jeu sorti fin mai 2016 : Overwatch.</p>
-                                <p>fera ici l'étude comparatif des statistiques du joueur Aschuvi et on étudiera avec quels héros a-t'il obtenu les meilleurs scores (win/looses, KDA, etc.)</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row" id="home-content">
-        <!-- PLAYTIME BY ROLE -->
-        <!-- PLAYTIME BY ROLE -->
-                <div class="col-md-4">
-                    <div class="data-wrapper">
-                        <div class="data-title">
-                            Playtime by role
-                        </div>
-                        <div id="playtimeByRole" class="data-content">      
-                        </div>
-                    </div>
-                </div>
-        <!-- OVERALL STATS -->
-                <div class="col-md-8">
-                    <div class="data-wrapper">
-                        <div class="data-title">
-                            Overall performance
-                        </div>
-                        <div class="data-content row">
-                            <div class="data-number col-xs-3" id="overallWL">
-                                <span class="data-number-overall"></span>
-                                <span class="data-number-avg"></span>
-                                <span class="data-number-info">win/loose</span>
-                            </div>
-                            <div class="data-number col-xs-3" id="overallE">
-                                <span class="data-number-overall"></span>
-                                <span class="data-number-avg"></span>
-                                <span class="data-number-info">eliminations</span>
-                            </div>
-                            <div class="data-number col-xs-3" id="overallD">
-                                <span class="data-number-overall"></span>
-                                <span class="data-number-avg"></span>
-                                <span class="data-number-info">deaths</span>
-                            </div>
-                            <div class="data-number col-xs-3" id="overallM">
-                                <span class="data-number-overall"></span>
-                                <span class="data-number-avg"></span>
-                                <span class="data-number-info">medals</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="home-section top left"></div>
+        <div class="home-section top"></div>
+        <div class="home-section left"></div>
+        <div class="home-section"></div>
+        <div id="outer-circle" class="circle">
+            <div id="inner-circle" class="circle">
+                <img src="img/calvinAndHobbes-grownUp_1.png">
+<!--                <h1>Hello ! (it's me &#9835;&#9833;)</h1>-->
+                <a href="web/potatoStory/home.html">Heeeyy !</a>
             </div>
         </div>
-    </body>
+	</body>
 </html>

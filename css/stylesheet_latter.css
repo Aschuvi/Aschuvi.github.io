@@ -1,0 +1,68 @@
+/******** COLORS
+    #ededea
+    #a2d7d8
+    #bfe1bf
+    #fcd059
+    #de5842
+    #f72e2a
+*/
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Roboto";
+    color: #333;
+    position: relative;
+}
+.circle { border-radius: 100%; }
+
+/* CENTER CIRCLE *******************************************************************************************************/
+#outer-circle {
+    position: absolute;
+    top: calc(50% - 100px);
+    left: calc(50% - 100px);
+    width: 200px;
+    height: 200px;
+    z-index: 2;
+    
+    border: 1px solid #ccc;
+    background-color: #eee;
+}
+#inner-circle {
+    width: 95%;
+    height: 95%;
+    margin: 2.5% 0 0 2.5%;
+    
+    border: 1px solid #ccc;
+    background-color: #fff;
+    overflow: hidden;
+}
+#inner-circle img {
+    width: 100%;
+    height: 100%;
+}
+
+#inner-circle h1 {
+    display: block;
+    width: 100%;
+    margin: -85% 0 0 0;
+    
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 32px;
+/*    background-color: #eee;*/
+}
+
+/* SECTIONS ************************************************************************************************************/
+.home-section {
+    float: left;
+    width: calc(50% - 0.5px);
+    height: calc(50% - 0.5px);
+    z-index: -1;
+}
+
+.home-section.left { border-right: 1px solid #ccc; }
+.home-section.top { border-bottom: 1px solid #ccc; }

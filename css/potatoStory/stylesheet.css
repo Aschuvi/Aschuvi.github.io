@@ -34,7 +34,7 @@ html, body {
 }
 
 body {
-    font-family: "Roboto";
+    font-family: "Lato";
     color: #333;
     position: relative;
     background-color: #efeffc;
@@ -183,7 +183,7 @@ header #nav .nav-container:hover .bottom-bar {
     border-bottom: 2px solid #ffc107;
     
     color: #ffc107;
-    font-family: "Roboto";
+    font-family: "Lato";
     font-size: 16px;
 }
 
@@ -209,14 +209,14 @@ header #nav .nav-container:hover .bottom-bar {
     margin-bottom: 30px;
 }*/
 
-.lg-12, .lg-9, .lg-8, .lg-6, .lg-4, .lg-3, .md-12, .md-9, .md-8, .md-6, .md-4, .md-3, .xs-12, .xs-9, .xs-8, .xs-6, .xs-4, .xs-3 {
+.lg-12, .lg-9, .lg-8, .lg-6, .lg-4, .lg-3, .lg-2, .md-12, .md-9, .md-8, .md-6, .md-4, .md-3, .md-2, .xs-12, .xs-9, .xs-8, .xs-6, .xs-4, .xs-3, .xs-2 {
     position: relative;
     min-height: 1px;
     padding-left: 15px;
     padding-right: 15px;
 }
 @media (min-width: 768px) {
-    .xs-12, .xs-9, .xs-8, .xs-6, .xs-4, .xs-3 { float: left; }
+    .xs-12, .xs-9, .xs-8, .xs-6, .xs-4, .xs-3, .xs-2 { float: left; z-index: -3 }
     .container { width: 750px; }
     .xs-12 { width: 100%; }
     .xs-9 { width: 75%; }
@@ -224,9 +224,10 @@ header #nav .nav-container:hover .bottom-bar {
     .xs-6 { width: 50%; }
     .xs-4 { width: 33.33333333%; }
     .xs-3 { width: 25%; }
+    .xs-2 { width: 16.66666667%; }
 }
 @media (min-width: 992px) {
-    .md-12, .md-9, .md-8, .md-6, .md-4, .md-3 { float: left; }
+    .md-12, .md-9, .md-8, .md-6, .md-4, .md-3, .md-2 { float: left; z-index: -3 }
     .container { width: 970px; }
     .md-12 { width: 100%; }
     .md-9 { width: 75%; }
@@ -234,10 +235,11 @@ header #nav .nav-container:hover .bottom-bar {
     .md-6 { width: 50%; }
     .md-4 { width: 33.33333333%; }
     .md-3 { width: 25%; }
+    .md-2 { width: 16.66666667%; }
 }
 
 @media (min-width: 1200px) {
-    .lg-12, .lg-9, .lg-8, .lg-6, .lg-4, .lg-3 { float: left; z-index: -3}
+    .lg-12, .lg-9, .lg-8, .lg-6, .lg-4, .lg-3, .lg-2 { float: left; z-index: -3 }
     .container { width: 1170px; }
     .lg-12 { width: 100%; }
     .lg-9 { width: 75%; }
@@ -245,6 +247,7 @@ header #nav .nav-container:hover .bottom-bar {
     .lg-6 { width: 50%; }
     .lg-4 { width: 33.33333333%; }
     .lg-3 { width: 25%; }
+    .lg-2 { width: 16.66666667%; }
 }
 
 
@@ -278,27 +281,39 @@ header #nav .nav-container:hover .bottom-bar {
     margin: 100px 0 0 175px;
 }
 
-.post .post-header h1, .post .post-header a {
+.post .post-header a, .post .post-header h1{
+    display: block;
     margin: 15px 0;
-    font-family: "Raleway";
     text-transform: uppercase;
     color: #ffca28;
+    font-size: 32px;
+    font-weight: 700;
+    
+    text-decoration: none;
     
     text-shadow: -3px 0 5px #FFF, 0 3px 5px #FFF, 3px 0 5px #FFF, 0 -3px 5px #FFF;
 }
-.post .post-header a {
-    display: block;
-    font-size: 32px;
-    font-weight: 700;
+
+.post .post-header h2 {
+    margin-bottom: 0;
+    color: #ffca28;
+    font-weight: 500;
+}
+.post h3 {
+    margin-bottom: 0;
+    // color: #ffca28;
+    font-weight: 300;
+    font-size: 18px;
+    font-style: italic;
 }
 
 .post-banner {
    position: absolute;
     width: 100%;
     height: 140px;
-    background-image: url(../../img/Calvin-Hobbes-baneer.png);
     background-size: 100%;
     background-repeat: no-repeat;
+    background-position: center;
     z-index: -1;
     
     -webkit-filter: grayscale(0.75); /* Old WebKit */
@@ -308,6 +323,7 @@ header #nav .nav-container:hover .bottom-bar {
 .post .post-header .post-legend {
     margin: 0;
     font-weight: 300;
+    color: #777;
 }
 
 .post .post-header .post-legend span {
@@ -369,6 +385,10 @@ header #nav .nav-container:hover .bottom-bar {
     margin: 0 0 25px;
     font-weight: 300;
     line-height: 25px;
+}
+
+.post .post-desc p.no-margin {
+    margin: 5px 0 0 0;
 }
 
 /** POST NO IMG *******************************************************************************************************/
@@ -480,9 +500,61 @@ header #nav .nav-container:hover .bottom-bar {
     background-color: #eee;
     cursor: pointer;
 }
+.archive-list-item-container .archive-article-list a.archive-article-item, .archive-list-item-container .archive-article-list a.archive-article-item:visited {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    width: 100%;
+    height: 25px;
+}
 .post #charger-suivant {
     padding-top: 25px;
     text-align: center;
     
     cursor: pointer;
+}
+
+
+
+/**********************************************************************************************************************/
+/** POST COMPLETE *****************************************************************************************************/
+/**********************************************************************************************************************/
+.post-complete .post-header {
+    width: 100%;
+    height: auto;
+    margin: 75px 0 0 0;
+    text-align: center;
+}
+
+.post-complete-banner {
+    position: relative;
+}
+
+.post-complete .post-complete-banner img.post-banner {
+    width: 100%;
+    position: relative;
+    height: auto;
+    
+    -webkit-filter: grayscale(0.66); /* Old WebKit */
+    filter: grayscale(0.66);
+}
+
+.post-complete img.post-logo {
+    left: calc(50% - 50px);
+    top: calc(100% - 50px);
+    height: 100px;
+}
+
+.post-complete .post-header h1 {
+    font-size: 48px;
+    font-weight: 500;
+    margin: 0 0 0 0;
+    color: #ffca28;
+    text-transform: uppercase;
+}
+
+.post-complete .post-desc {
+    text-align: justify;
+    font-size: 18px;
+    color: #444;
 }

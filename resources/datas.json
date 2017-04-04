@@ -1,6 +1,6 @@
 {
     "articles": [{
-        "id": 1,
+        "id": 4,
         "bgImg": "pencil.jpg",
         "title": "Le départ",
         "type": "pensées",
@@ -9,7 +9,7 @@
         "content": "<p>Ce week-end, j'ai écris un post sous le coup de la déception. En écrivant ce post je me suis rendu compte que ça m'avait permi de sortir de la spirale de réflexions négatives dans laquelle j'étais.<br/>Le court texte qui suit à été écrit à la suite du post, mais pour différentes raisons j'ai décidé de les séparer, et de ne poser le prochain post que plus tard.</p><p>Les émotions me poussent a écrire. Écrire m'aide à extérioriser. Vous devriez essayer, ce n'est pas dur. Je pense des choses, je les mets par écrit, ça me fais du bien. Je ne le fais pas pour être lu, je le fais pour me lire, pour faire le point, pour poser mes idées, mes impressions, prendre du recul, essayer de voir les choses de manière rationnelles. Si d'autres prennent du plaisir à me lire c'est encore mieux, cela m'en donne aussi.</p><p>Deuxièmement c'est dans ces moments que j'ai besoin d'écrire. J'ai besoin d'extérioriser, et souvent aussi de partager. Parfois cela se traduit par aller boire un verre, d'autres fois de chanter à voix haute - je pense que mes voisins me detestent parfois -, aujourd'hui j'écris et j'ai envie de le partager. J'ai peur des réactions que cela peut susciter, mais j'en ai envie.</p><p>Donc aujourd'hui je me lance, no matter what. J'ai adoré Brad Pitt Deuchfalh, j'ai adoré Jean d'Ormesson, j'ai adoré Marc Levi. j'ai aimé les lire comme j'en ai adoré tant d'autres, et j'ai hâte de lire la suite. Je n'ai ni l’impertinence délectable du premier, ni le tiers des connaissances du second, ni l'art de la romance du dernier. En revanche j'ai des histoires, des histoires à partager, des histoires que je veux écrire.</p>"
     },
     {
-        "id": 2,
+        "id": 3,
         "bgImg": "24-11-2011_Paris_1.jpg",
         "title": "Message à un ami",
         "type": "histoire",
@@ -18,7 +18,7 @@
         "content": "<p>To you,</p><p>Alors me voila, en train de me réveiller après avoir passé une soirée avec une amie que je n’avais pas vue depuis 1 an ! Une amie que tu connais très bien, Mathilde. On s’est parlé de pleins de trucs, de tout de rien, j’ai passé un super moment.</p><p>Comme tous les matins, je tends mon bras hors du lit. Cherche mon portable sur le sol à tâtons. Et je ne le trouve pas. J’inspire, je soupire, je tourne la tête, je l’aperçois. J’arrête mon alarme et arrive le combat quotidien. La bataille entre l’envie et la motivation, entre l’oreiller et le bol, entre la flemme et les obligations.</p><p>On ne va pas se le cacher, plus d’une fois la flemme a reporté le combat haut la main. Un KO en quelques secondes qui se termine par moi, me réveillant 30 minutes plus tard, à l’heure à laquelle j’étais censé partir. Loupé… S’enchaîne alors l’indémodable danse du « merde je suis en retard ». Je ne pense pas être un bon danseur, mais cette danse là, elle m’est gravée dans la peau. Je la maîtrise !</p><p>Cela commence toujours par un réveil en sursaut, un regard sur l’heure pendant que je calcule mes chances d’arriver à attraper le prochain train. Douche-déo-parfum 5 minutes. Je ne mange pas, je me rase pas, je me coiffe pas, je prends les premiers vêtements que je vois… Plus 10 minutes pour aller à la gare – ça se tente !</p><p>Sauf qu’aujourd’hui j’aurai le temps de manger en lisant un bouquin, de me coiffer, d’enfiler un t-shirt, de chercher un pantalon qui va avec, de ne pas en trouver, changer de t-shirt, d’en essayer d’autres, de revenir sur mon premier choix. J’aurais le temps de tout ça. Car on est jeudi, le 21 juillet 2016. Il est 7h40 j’éteins mon alarme et je vois « Anniversaire de Pierre ». Merci Facebook. Je n’ai plus envie de dormir. Pas envie de travailler non plus. Juste de profiter.</p>"
     },
     {
-        "id": 3,
+        "id": 2,
         "bgImg": "smoking-dog-1.jpg",
         "title": "Week-end à Lyon",
         "type": "carte postale",
@@ -27,7 +27,7 @@
         "content": "<p>Je me souviens très bien quand je l’ai vue. J’étais assis dans un bar en train de discuter devant un verre avec mon frère et ses potes.  J’étais dos à la salle mais je l’ai remarquée.</p><p>Enfin, pour être tout à fait exact, j’ai aperçu ses copines en premier. Elles étaient à côté d’une table, prêtes de cocktails. Il y en avait même une sur une table. Cela m’a surpris car, s’il y avait un peu de monde dans le bar, l’ambiance n’était pas surexcitée. Et il y en avait une sur une table, pas à danser, non, mais assise, à la façon de ceux qui restent debout quand tout les autres sont assis. L’air con.</p><p>Je les regardais donc, amusé, et je la vois, du coin de l’œil contre un mur, un peu à l’écart. Tout en étant si semblable à ses copines – sans plaisanter, on aurait dit des sœurs – mais à la fois si différente, comme entourée d’une aura.</p><p>Au début je n’ai pas osé bouger. Peur de ne savoir quoi faire, quoi raconter. J’ai fini ma pinte, incapable de la faire sortir de mes pensées. Rassemblant mon courage, oubliant le regard des autres – qui, en toute honnêteté, ne devait d’ailleurs pas me regarder – je me suis levé. Je me suis approché, étonnamment calme. Je me suis approché d’elle, je l’ai regardée, un sourire au coin des lèvres. Elle m’amusait.</p><p>Je l’ai entourée de mes mains. Elle m’amusait, avec son petit chien.</p><p>Tu ne la trouve pas drôle, toi, la carte postale avec son chien qui fume ?</p>"
     },
     {
-        "id": 4,
+        "id": 1,
         "bgImg": "home-office.jpg",
         "title": "L'art conceptuel",
         "type": "histoire",

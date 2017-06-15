@@ -171,6 +171,7 @@ p.answer-wrap {
   }
   .mastfoot {
     position: fixed;
+    z-index: -1;
     bottom: 0;
   }
   /* Start the vertical centering */

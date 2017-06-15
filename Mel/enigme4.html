@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>La simplcité même</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">The Mel Game</h3>
+            	<h4 class="masthead-desc">par un amateur de caresses discrètes mais agréables</h4>
+            </div>
+          </div>
+
+          <div class="inner cover">
+            <h1 class="cover-heading">Enigme 4 (last)</h1>
+						
+						 <div class="alert alert-danger alert-dismissible fade in" role="alert" id="alert" style="display:none">
+							 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								 <span aria-hidden="true">×</span>
+							 </button>
+							 <h4>N'importe quoi! :p</h4><p>Courage tu vas y arriver ;)</p>
+						</div>
+						
+						<blockquote style="border: 0">
+							<p>
+								Je peux embrasser dans la rue,<br/>
+							  Tu peux me serer contre toi,<br/>
+								Souvent mou tu me préfères dur.
+							</p>
+							<footer>Simon dans <cite title="Source Title">ce site</cite></footer>
+						</blockquote>
+						
+            <p class="lead answer-wrap">
+							<i>La réponse est évidente ! </i> <input id="reponse" type="text"/> <a class="ok" href="#" onclick="ok()">OK</a>
+            </p>
+						<p class="lead">
+              <button id="help" class="btn btn-default" onclick="help()">Soit mon prince charmant et aide moi !</button>
+            </p>
+						 <div class="alert alert-warning alert-dismissible fade in" role="alert" id="help-box" style="display:none">
+							 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								 <span aria-hidden="true">×</span>
+							 </button>
+							 Tu n'as pas besoin d'indice, l'énigme est toute simple et la réponse est évidente.
+						</div>
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Jeu pour <span>Mel</span>, by <span>@Simon</span>.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+		<script>
+			function ok() {
+			  console.log("ok");
+				if($("#reponse").val().toLowerCase().indexOf("évidente") >= 0 || $("#reponse").val().toLowerCase().indexOf("evidente") >= 0) {
+					window.location.replace("evidente.html");
+				} else {
+					$("#alert").show();
+					$("#reponse").val("");
+				}
+			}
+			
+			function help() {
+			  console.log("help");
+				$("#help-box").show();
+			}
+		</script>
+  </body>
+</html>

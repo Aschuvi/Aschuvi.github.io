@@ -34,7 +34,12 @@
 
           <div class="inner cover">
             <h1 class="cover-heading">Enigme 4 (last)</h1>
-						
+						<div class="alert alert-danger alert-dismissible fade in" role="alert" id="win" style="display:none">
+							 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								 <span aria-hidden="true">×</span>
+							 </button>
+							 <h4>The end !</h4><p>Bravo, tu as gagné.</p>
+						</div>
 						 <div class="alert alert-danger alert-dismissible fade in" role="alert" id="alert" style="display:none">
 							 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 								 <span aria-hidden="true">×</span>
@@ -86,7 +91,8 @@
 			function ok() {
 			  console.log("ok");
 				if($("#reponse").val().toLowerCase().indexOf("évidente") >= 0 || $("#reponse").val().toLowerCase().indexOf("evidente") >= 0) {
-					window.location.replace("enigme5.html");
+// 					window.location.replace("enigme5.html");
+					$("#win").show();
 				} else {
 					$("#alert").show();
 					$("#reponse").val("");

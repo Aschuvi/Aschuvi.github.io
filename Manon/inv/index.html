@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Invitation</title>
+	<meta name="theme-color" content="#ffffff">
+	<!-- Normalize -->
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<!-- Owl -->
+	<link rel="stylesheet" type="text/css" href="css/owl.css">
+	<!-- Animate.css -->
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.1.0/css/font-awesome.min.css">
+	<!-- Elegant Icons -->
+	<link rel="stylesheet" type="text/css" href="fonts/eleganticons/et-icons.css">
+	<!-- Main style -->
+	<link rel="stylesheet" type="text/css" href="css/cardio.css">
+</head>
+
+<body>
+	<div class="preloader">
+		<img src="img/loader.gif" alt="Preloader image">
+	</div>
+	<header id="intro">
+		<div class="container">
+				<div class="header-text">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<h3 class="light white">Bientôt 1 mois</h3>
+							<h1 class="white typed">Prête à passer la journée avec moi ?</h1>
+							<span class="typed-cursor">|</span>
+						</div>
+						<div id="countdown-finish" class="col-md-12 text-center" style="display: none">
+							<h1 class="white">C'est parti !</h1>
+						</div>
+					</div>
+				</div>
+				<div class="row" id="countdown-timer">
+					<div class="col-lg-offset-3 col-md-offset-3 col-lg-2 col-md-2 col-xs-3">
+						<div id="hrs" class="timer">
+							<span class="nbr"></span>
+							<span class="unite">hrs</span>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-xs-3">
+						<div id="min" class="timer">
+							<span class="nbr"></span>
+							<span class="unite">min</span>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 col-xs-3">
+						<div id="sec" class="timer">
+							<span class="nbr"></span>
+							<span class="unite">sec</span>
+						</div>
+					</div>
+				</div>
+		</div>
+	</header>
+	<section id="services" class="section section-padded">
+		<!--<div class="cut cut-top"></div>-->
+		<div class="container">
+			<div class="row text-center title">
+				<h2>Kékonfé</h2>
+				<h4 class="light muted">Au programme de la journée (matinée ouverte à l'imagination)</h4>
+			</div>
+			<div class="row services">
+				<div class="col-md-4">
+					<div class="service">
+						<div class="icon-holder">
+							<img src="img/icons/food-variant.png" alt="" class="icon">
+						</div>
+						<h4 class="heading">Mangeage</h4>
+						<p class="description">Ce midi c'est resto ! Fais tes bagages il va falloir prendre le métro, direction Nation pour un resto italien !</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="service">
+						<div class="icon-holder">
+							<img src="img/icons/google-maps.png" alt="" class="icon">
+						</div>
+						<h4 class="heading">Baladage</h4>
+						<p class="description">Baladons nous et passons à deux ou trois adresses pour du shopping ! (Sans oublier l'affaire Skittles...)</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="service">
+						<div class="icon-holder">
+							<img src="img/icons/duck.png" alt="" class="icon">
+						</div>
+						<h4 class="heading">Libres &amp; Assoupissage</h4>
+						<p class="description">Soirée posée: bisous, câlins, massages avec un lot de débilité à la télé (films et séries inclus).</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--<div class="cut cut-bottom"></div>-->
+	</section>
+	<footer style="padding: 50px 0 10px;">
+		<div class="container">
+			<div class="row text-center-mobile">
+				<div class="col-sm-8">
+					<p>&copy; 2017 Réalisé avec amour par <a href="javascript:void(0)">Simon</a> pour <a href="javascript:void(0)">Manon</a></p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Scripts -->
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script src="js/typewriter.js"></script>
+	<script src="js/jquery.onepagenav.js"></script>
+	<script src="js/main.js"></script>
+	<script>
+		$(document).ready( function () {
+			$("#countdown-timer .timer").height($("#countdown-timer .timer").width());
+		});
+			// Set the date we're counting down to
+			var countDownDate = new Date(2017,7,29,12,0,0,0).getTime();
+
+			// Update the count down every 1 second
+			var x = setInterval(function() {
+
+				// Get todays date and time
+				var now = new Date().getTime();
+
+				// Find the distance between now an the count down date
+				var distance = countDownDate - now;
+
+				// Time calculations for days, hours, minutes and seconds
+				var d = Math.floor(distance / (1000 * 60 * 60 * 24));
+				var h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+				var m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+				var s = Math.floor((distance % (1000 * 60)) / 1000);
+
+				//document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+				$("#hrs .nbr").html(h);
+				$("#min .nbr").html(m);
+				$("#sec .nbr").html(s);
+				// If the count down is finished, write some text 
+				if (distance < 0) {
+					clearInterval(x);
+					$("#countdown-finish").show();
+					// document.getElementById("demo").innerHTML = "EXPIRED";
+				}
+			}, 1000);
+	</script>
+</body>
+
+</html>

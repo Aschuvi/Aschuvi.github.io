@@ -24,10 +24,12 @@ span.italic { font-style: italic; }
   margin-left: auto;
   padding-right: 15px;
   padding-left: 15px;
+  width: 970px;
 }
 #container_message {
 	float: left;
-	width: 400px;
+    width: 397px;
+    height: 768px;
 	padding: 35px;
 	background-color: #2c4051;
 	color: #FFFFFF;
@@ -55,9 +57,6 @@ span.italic { font-style: italic; }
 @media (min-width: 992px) {
 	#container_page {
 		width: 970px;
-	}
-	#container, #container_message {
-		float: left;
 	}
 	#container_message {
 		width: 397px;

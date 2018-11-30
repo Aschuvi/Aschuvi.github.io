@@ -1,0 +1,573 @@
+body {
+	background-color: #fafafa;
+	color: #313131;
+	margin: 0;
+}
+
+/**************************************************************************
+****************************      COMMON      *****************************
+**************************************************************************/
+*, *:before, *:after {
+    box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+}
+
+span.small-caps { font-variant: small-caps; }
+span.italic { font-style: italic; }
+.border-white { border: 1px #FFFFFF solid; }
+
+/**************************************************************************
+***************************      CONTAINERS      ***************************
+**************************************************************************/
+#container_page {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+#container_message {
+	float: left;
+	width: 400px;
+	padding: 35px;
+	background-color: #2c4051;
+	color: #FFFFFF;
+	font-weight: 600;
+	position: relative;
+}
+#container {
+	position: relative;
+	float: left;
+	width: 543px;
+	height: 768px;
+	margin: 0 auto;
+	overflow: hidden;
+	background-color: #FFFFFF;
+}
+/*
+@media (min-width: 768px) {
+	#container_page {
+		width: 750px;
+	}
+	#container, #container_message {
+		float: none;
+	}
+}*/
+@media (min-width: 992px) {
+	#container_page {
+		width: 970px;
+	}
+	#container, #container_message {
+		float: left;
+	}
+	#container_message {
+		width: 397px;
+		height: 768px;
+	}
+}
+@media (min-width: 1200px) {
+	#container_page {
+		width: 1170px;
+	}
+	#container_message {
+		width: 597px;
+	}
+}
+
+#container_message h1 {
+	text-transform: uppercase;
+	font-size: 28;
+	font-weight: 700;
+}
+#container_message p {
+	font-size: 18;
+	font-weight: 500;
+}
+
+#container_message .bgd-img {
+	position: absolute;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+	top:0;
+	left:0;
+}
+#container_message .bgd-img img {
+	position: absolute;
+	bottom: -35;
+	height: 300px;
+}
+
+/**************************************************************************
+***************************      CARDS      ***************************
+**************************************************************************/
+.test {
+	width: 141px;
+	height: 211px;
+	position: absolute;
+}
+.test:hover {
+	z-index: 52;
+}
+
+.test.p {
+	width: 211px;
+	height: 141px;
+}
+
+.test img {
+	width: 100%;
+	height: 100%;
+}
+
+/********************** DEPTH *********************/
+.z1 { z-index: 27 }
+.z2 { z-index: 28 }
+.z3 { z-index: 29 }
+.z4 { z-index: 30 }
+.z5 { z-index: 31 }
+.z6 { z-index: 32 }
+.z7 { z-index: 33 }
+.z8 { z-index: 34 }
+.z9 { z-index: 35 }
+.z10 { z-index: 36 }
+.z11 { z-index: 37 }
+.z12 { z-index: 38 }
+.z13 { z-index: 39 }
+.z14 { z-index: 40 }
+.z15 { z-index: 41 }
+.z16 { z-index: 42 }
+.z17 { z-index: 43 }
+.z18 { z-index: 44 }
+.z19 { z-index: 45 }
+.z20 { z-index: 46 }
+.z21 { z-index: 47 }
+.z22 { z-index: 48 }
+.z23 { z-index: 49 }
+.z24 { z-index: 50 }
+.z25 { z-index: 51 }
+.z26 { z-index: 52 !important }
+
+.zm1 { z-index: 1 }
+.zm2 { z-index: 2 }
+.zm3 { z-index: 3 }
+.zm4 { z-index: 4 }
+.zm5 { z-index: 5 }
+.zm6 { z-index: 6 }
+.zm7 { z-index: 7 }
+.zm8 { z-index: 8 }
+.zm9 { z-index: 9 }
+.zm10 { z-index: 10 }
+.zm11 { z-index: 11 }
+.zm12 { z-index: 12 }
+.zm13 { z-index: 13 }
+.zm14 { z-index: 14 }
+.zm15 { z-index: 15 }
+.zm16 { z-index: 16 }
+.zm17 { z-index: 17 }
+.zm18 { z-index: 18 }
+.zm19 { z-index: 19 }
+.zm20 { z-index: 20 }
+.zm21 { z-index: 21 }
+.zm22 { z-index: 22 }
+.zm23 { z-index: 23 }
+.zm24 { z-index: 24 }
+.zm25 { z-index: 25 }
+
+/********************** COLORS *********************/
+.red {
+	background-color: #FA8197;
+}
+.blue {
+	background-color: #81D4FA;
+}
+.grey {
+	background-color: #62757F;
+}
+.grey-blue {
+	background-color: #C1D5E0;
+}
+
+/**************************************************************************
+*************************      NUMBER STYLE      *************************
+**************************************************************************/
+.nb-container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.nb {
+	position: absolute;
+	width: 80px;
+	text-align: center;
+	top: calc((100% - 77px)/2);
+	left: calc((100% - 80px)/2);
+	font-size: 56px;
+	color: #FFFFFF;
+	font-weight: 900;
+}
+
+/**************************************************************************
+****************************      MODAL      ***************************
+**************************************************************************/
+#modal_title1, #modal_title2 {
+	text-transform: uppercase;
+	font-size: 28;
+	font-weight: 700;
+}
+#modal_body1 p, #modal_body2 p {
+	font-size: 18;
+	font-weight: 500;
+}
+.modal-content {
+	text-align: center;
+}
+
+/**************************************************************************
+****************************      DAYS BOX      ***************************
+**************************************************************************/
+#a {
+	left: 405px;
+	top: 289px;
+}
+#b {
+	left: 43px;
+	top: 173px;
+}
+#c {
+	left: 375px;
+	top: 49px;
+}
+#d {
+	left: 426px;
+	top: 430px;
+}
+#e {
+	left: -27px;
+	top: 398px;
+}
+#f {
+	left: 375px;
+	top: -29px;
+}
+#g {
+	left: 62px;
+	top: 179px;
+}
+#h {
+	left: 380px;
+	top: 144px;
+}
+#i {
+	left: 337px;
+	top: 465px;
+}
+#j {
+	left: -27px;
+	top: 537px;
+}
+#k {
+	left: 320px;
+	top: 78px;
+}
+#l {
+	left: 22px;
+	top: 211px;
+}
+#m {
+	left: 73px;
+	top: 393px;
+}
+#n {
+	left: 22px;
+	top: 66px;
+}
+#o {
+	left: 344px;
+	top: 315px;
+}
+#p {
+	left: 35px;
+	top: 543px;
+}
+#q {
+	left: 149px;
+	top: 572px;
+}
+#r {
+	left: 274px;
+	top: 577px;
+}
+#s {
+	left: 68px;
+	top: 95px;
+}
+#t {
+	left: 109px;
+	top: 0px;
+}
+#u {
+	left: 236px;
+	top: -14px;
+}
+#v {
+	left: 288px;
+	top: 179px;
+}
+#w {
+	left: 160px;
+	top: 433px;
+}
+#x {
+	left: 109px;
+	top: 274px;
+}
+#y {
+	left: 204px;
+	top: 260px;
+}
+
+
+/**************************************************************************
+****************************      SANTA      ***************************
+**************************************************************************/
+/* Santa by @Ali Khalilifar https://codepen.io/alikhalilifar/*/
+.santa {
+    background:#3ac6f4;
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    position:relative;
+    top: 50px;
+    left:0;right:0;margin:0 auto;
+    bottom:0;
+}
+.santa .snow {
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    left: 18px;
+    top: 44px;
+}
+.santa .snow:after {
+    width: 6px;
+    height: 6px;
+    content: "";
+    display: inline-block;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: -14px;
+    left: 0px;
+}
+.santa .snow:before {
+    width: 4px;
+    height: 4px;
+    content: "";
+    display: inline-block;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -12px;
+    left: -11px;
+}
+.santa .hat {
+    width: 64px;
+    height: 31px;
+    border-radius: 200px 200px 0 0;
+    background: #ef4753;
+    margin: 0 auto;
+    top: -11px;
+    position: relative;
+    left: 5px;
+    z-index:20;
+}
+.santa .hat:after {
+    width: 60px;
+    height: 15px;
+    border-radius: 20px;
+    content: "";
+    display: block;
+    background: white;
+    position: relative;
+    top: 22px;
+    left: -3px;
+}
+.santa .face {
+    width: 54px;
+    height: 57px;
+    background: white;
+    border-radius: 0px 0px 50px 50px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 20;
+    top: -6px;
+}
+.santa .face .eyes {
+    background:#f1ddd5;
+    width:45px;
+    height:15px;
+    margin:0 auto;
+    position:relative;
+    left:-1px;
+    text-align: center;
+    top:4px;
+    padding-top: 0px;
+}
+.santa .face .eyes:after, righteye {
+    width: 8px;
+    height: 6px;
+    background: transparent;
+    box-shadow: 0px -2px #793623;
+    content: "";
+    display:inline-block;
+    margin:0 auto;
+    border-radius: 50%;
+}
+.santa .face .eyes:before, lefteye {
+    width: 8px;
+    height: 6px;
+    background: transparent;
+    box-shadow: 0px -2px #793623;
+    content: "";
+    display:inline-block;
+    margin:0 auto;
+    border-radius: 50%;
+    margin-right:5px;
+}
+.santa .mouth {
+    background:#a31f2b;
+    border-radius:50%;
+    width:6px;
+    height:6px;
+    position:absolute;
+    bottom:20px;
+    right:17px;
+}
+.santa .body {
+    width: 93px;
+    height: 84px;
+    background: #ef4753;
+    border-radius: 90px 90px 0px 0px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    text-align:center;
+    z-index:10;
+}
+.santa .body:after {
+    width: 5px;
+    height: 5px;
+    background: white;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    top: 68px;
+    z-index: 50;
+    content: "";
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+.santa .body:before {
+    width: 5px;
+    height: 5px;
+    background: white;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    top: 55px;
+    z-index: 50;
+    content: "";
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+.santa .hat .hat-end {
+    width: 13px;
+    height: 32px;
+    content: "";
+    background: #ef4753;
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 15px;
+    border-radius: 0px 11px 0px 0px;
+}
+.santa .hat .hat-end:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: white;
+    content: "";
+    display: inline-block;
+    top: 30px;
+    position: absolute;
+    left: 0px;
+    z-index: 11;
+}
+.circles {
+    background: #a31f2b;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    z-index: 9;
+    position: absolute;
+    right: -6px;
+    top: 12px;
+}
+.circles:after {
+    background:white;
+    width:40px;
+    height:40px;
+    right:0;
+    top:50px;
+    content:"";
+    border-radius:50%;
+}
+.dirty-overflow {
+    overflow: hidden;
+    width: 120px;
+    height: 76px;
+    border-radius: 0px 0px 105px 105px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.santa:hover {
+	border: 3px solid #FFFFFF;
+	cursor: pointer;
+}
+
+/**************************************************************************
+****************************      ANIMATION      ***************************
+**************************************************************************/
+/*
+Magic - Ver 1.3.0 - https://minimamente.com
+Licensed under the MIT license
+Copyright (c) 2018 Christian Pucci
+*/
+.magictime{-webkit-animation-duration:2s;animation-duration:2s;animation-fill-mode:both}
+.swashIn{
+	animation-name: swashIn
+}
+@keyframes swashIn{
+	0%{
+		opacity: 0;
+		transform-origin: 50% 50%;
+		transform: scale(0,0)
+	}
+	90%{
+		opacity: 1;
+		transform-origin: 50% 50%;
+		transform: scale(.9,.9)
+	}
+	100%{
+		opacity: 1;
+		transform-origin: 50% 50%;
+		transform: scale(1,1)
+	}
+}

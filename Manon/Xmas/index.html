@@ -1,0 +1,130 @@
+<html>
+	<head>
+        <meta charset="utf-8">
+		<link href="css/style_AdventCalendar.css" rel="stylesheet" type="text/css">
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,600,700,900" rel="stylesheet">
+	</head>
+	<body>
+		<div id="container_page">
+			<div id="container_message">
+				<h1>Calendrier de l'avent</h1>
+				<p>Réalisé par <span class="small-caps italic">Celui qui arrive à faire rire par sa seule imitation d'un chat, Simon</span></p>
+				<p>Immaginé pour <span class="small-caps italic">Celle qui arrive a se faire des films dont Bollywood trouverait les scénarios trop improbables, Manon</span></p>
+				<div id="santa" class="santa" onclick="showGift()">
+					<div class="circles"></div>
+					<div class="snow"></div>
+					<div class="hat">
+						<div class="hat-end"></div>
+					</div>
+					<div class="face">
+						<div class="eyes"></div>
+						<div class="mouth"></div>
+					</div>
+					<div class="dirty-overflow">
+						<div class="body"></div>
+					</div>
+				</div>
+				<div class="bgd-img">
+					<img src="img/layer.png"/>
+				</div>
+			</div>
+			<div id="container">
+				<div class="test border-white blue z25" id="a"><div class="nb-container"><div class="nb">1</div></div></div>
+				<div class="test border-white red z24" id="b"><div class="nb-container"><div class="nb">2</div></div></div>
+				<div class="test border-white red z23" id="c"><div class="nb-container"><div class="nb">3</div></div></div>
+				<div class="test border-white blue z22" id="d"><div class="nb-container"><div class="nb">4</div></div></div>
+				<div class="test border-white grey-blue z21" id="e"><div class="nb-container"><div class="nb">5</div></div></div>
+				<div class="test border-white blue z20" id="f"><div class="nb-container"><div class="nb">6</div></div></div>
+				<div class="test border-white p red z19" id="g"><div class="nb-container"><div class="nb">7</div></div></div>
+				<div class="test border-white grey-blue z18" id="h"><div class="nb-container"><div class="nb">8</div></div></div>
+				<div class="test border-white grey-blue z17" id="i"><div class="nb-container"><div class="nb">9</div></div></div>
+				<div class="test border-white red z16" id="j"><div class="nb-container"><div class="nb">10</div></div></div>
+				<div class="test border-white red z15" id="k"><div class="nb-container"><div class="nb">11</div></div></div>
+				<div class="test border-white red z14" id="l"><div class="nb-container"><div class="nb">12</div></div></div>
+				<div class="test border-white blue z13" id="m"><div class="nb-container"><div class="nb">13</div></div></div>
+				<div class="test border-white blue z12" id="n"><div class="nb-container"><div class="nb">14</div></div></div>
+				<div class="test border-white blue z11" id="o"><div class="nb-container"><div class="nb">15</div></div></div>
+				<div class="test border-white grey-blue z10" id="p"><div class="nb-container"><div class="nb">16</div></div></div>
+				<div class="test border-white red z9" id="q"><div class="nb-container"><div class="nb">17</div></div></div>
+				<div class="test border-white grey-blue z8" id="r"><div class="nb-container"><div class="nb">18</div></div></div>
+				<div class="test border-white p red z7" id="s"><div class="nb-container"><div class="nb">19</div></div></div>
+				<div class="test border-white blue z5" id="t"><div class="nb-container"><div class="nb">20</div></div></div>
+				<div class="test border-white blue z5" id="u"><div class="nb-container"><div class="nb">21</div></div></div>
+				<div class="test border-white p grey-blue z4" id="v"><div class="nb-container"><div class="nb">22</div></div></div>
+				<div class="test border-white p red z3" id="w"><div class="nb-container"><div class="nb">23</div></div></div>
+				<div class="test border-white grey-blue z2" id="x"><div class="nb-container"><div class="nb">24</div></div></div>
+				<div class="test border-white blue z1" id="y"><div class="nb-container"><div class="nb">25</div></div></div>
+			</div>
+			<div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<span class="modal-title" id="modal_title1">Ce n'est pas encore Noël !</span>
+						</div>
+						<div class="modal-body" id="modal_body1">
+							<p>Tu ne sauras pas ton cadeau avant le 25<br/><3<p/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript"> 
+			$(document).ready(function() {
+				ymd = new Date($.now());
+				d = ymd.getDate();
+				m = ymd.getMonth();
+				y = ymd.getYear();
+				
+				if (y > 2018) {
+					$(".test").each(function() {
+						showEl($(this));
+					});
+				}
+				else if (m == 11) { // si on est en décembre
+					$(".test").each( function() {
+						var id = $(this).attr('id').charCodeAt(0);
+						if (id < d+96) {  // (a == 97)
+							showEl($(this), "");
+						} else if (id == d+96) {
+							showTodayEl($(this)); // A FAIRE : UNE ANIMATION
+						}
+					});
+				}
+				if (ymd >= new Date(2018, 11, 25)) {
+					$("#santa").attr("onclick", "showGift()");
+				}
+			});
+			
+			function showEl(e, classes) {				
+				// get the day where the card was shown
+				id = $(e).attr("id");
+				dz = $("#" + id + " .nb").html();
+				// set the right z-index
+				e.removeClass("z"+(26-dz));
+				e.addClass("zm"+(26-dz));
+				e.removeClass("border-white"); // remove the border
+				// remove everything inside
+				e.empty();
+				// show image instead
+				e.append("<img src='img/" + id + ".jpg' class='" + classes + "'/>");
+			}
+			
+			function showTodayEl(e) {
+				showEl(e, "magictime swashIn");
+				e.addClass("z26");
+				var wait = window.setTimeout( function(){ $("img").removeClass(); $(e).removeClass("z26")}, 2500 );
+			}
+			
+			function showGift() {
+				if (ymd >= new Date(2018, 11, 25)) {
+					$('#myModal2').modal('toggle');
+				} else {
+					$('#myModal1').modal('toggle');
+				}
+			}
+		</script>
+	</body>
+</html>

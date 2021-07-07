@@ -1,0 +1,152 @@
+<html>
+	<head>
+        <meta charset="utf-8">
+		<title>Complimentez moi</title>
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link href="css/custom.css" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,600,700,900" rel="stylesheet">
+		<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+	</head>
+	<body>
+		<header class="bg-primary text-white">
+			<div class="container d-flex align-items-center flex-column">
+				<div id="compliment" class="col-md-8 col-lg-8">
+					<div class="blockquote">
+						<h1 id="theQuote" class="header-heading text-uppercase mb-0"></h1>
+					</div>
+				</div>
+				<div id="photo" class="col-md-4 col-lg-4"><img src="img/bonhomme_placeholder.png"/></div>
+			</div>
+		</header>
+		<section id="actions" class="actions">
+			<div class="container">
+				<div class="want-more">
+					<div class="divider-custom-line"></div>
+					<div class="header-subheading mb-0">Complimente moi...</div>
+					<div class="divider-custom-line"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 col-lg-4">
+						<div class="new-quote-item mx-auto bg-info" onclick="newQuote('objectif');">
+							<div class="new-quote-icon">
+								<img class="svg-white" src="img/goal.svg" alt="Objectif" />
+							</div>
+							<div class="new-quote-desc">Objectivement</div>
+							<div class="new-quote-item-caption d-flex align-items-center justify-content-center">
+								<div class="new-quote-icon">
+									<img class="svg-white" src="img/new-product.svg" alt="nouveau compliment" />
+								</div>
+								<div class="new-quote-desc">Un autre !</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-lg-4">
+						<div class="new-quote-item mx-auto bg-secondary" onclick="newQuote('original');">
+							<div class="new-quote-icon">
+								<img class="svg-white" src="img/mustache.svg" alt="Original" />
+							</div>
+							<div class="new-quote-desc">Originalement</div>
+							<div class="new-quote-item-caption d-flex align-items-center justify-content-center">
+								<div class="new-quote-icon">
+									<img class="svg-white" src="img/new-product.svg" alt="nouveau compliment" />
+								</div>
+								<div class="new-quote-desc">Un autre !</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-lg-4">
+						<div class="new-quote-item mx-auto bg-danger" onclick="newQuote('amoureux');">
+							<div class="new-quote-icon">
+								<img class="svg-white" src="img/love.svg" alt="Coquin" />
+							</div>
+							<div class="new-quote-desc">Coquinement</div>
+							<div class="new-quote-item-caption d-flex align-items-center justify-content-center">
+								<div class="new-quote-icon">
+									<img class="svg-white" src="img/new-product.svg" alt="nouveau compliment" />
+								</div>
+								<div class="new-quote-desc">Un autre !</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			function newQuote(type) {
+				let obj = [
+							"Tu es super sociable",
+							"Tu es une super amie",
+							"Tu tiens bien l'alcool",
+							"Tu es organisée",
+							"Tes patrons ont de la chance de t'avoir",
+							"Tu es élégante",
+							"Tu es dynamique",
+							"Tu sais partager tes passions",
+							"Tu es une excellente partenaire de boisson",
+							"Tu es souple",
+							"On peut compter sur toi",
+							"Tu fais vachement bien la cuisine",
+							"Tu sais ce que tu veux",
+							"Tu oses",
+							"Tu es intelligente",
+							"Tu es curieuse",
+							"Parmi mes copines, tu es celle que mes potes préfèrent"
+						];
+				let ori = [
+							"Tu es celle qui porte le mieux tes vêtements",
+							"Tu es la personne a qui j'ai envie de faire un compliment",
+							"J'ai envie que tu saches que tu es importante pour d'autres personnes",
+							"Tu es la plus belle personne à lire ce compliment",
+							"Je te respecte tellement que même si tu n'existais pas, je ne piquerai pas tes frites",
+							"Sur une île déserte, je serai bien embêté de devoir te manger",
+							"Tu as des sourcils symétriques",
+							"Je n'arrive pas à te trouver de défaut. Ah, si, mais ça a mit au moins 1s",
+							"J'arrive à te supporter",
+							"Mon plus beau cadeau de Noël, c'est toi. Mais j'en veux quand même un autre.",
+							"Tu pourrais inventer des mots",
+							"Quand j'entends ta voix, j'ai le cérumen qui fond",
+							"T'es aussi douce que du PQ triple-épaisseur",
+							"Clément t'apprécie plus que Vald",
+							"T'es aussi rare qu'une potatoe dans un paquet de frites",
+							"T'es beaucoup moins con que t'en as l'air",
+							"Tes yeux brillent comme la lunette de mes WC quand je viens de laver"
+						];
+				let coq = [
+							"Je t'aime tellement que je t'aime même quand tu chantes",
+							"Si j'avais le choix entre Emma Watson et toi, sache que tu serais surement gagnante",
+							"Tu m'as appris à apprécier le ménage",
+							"T'as de beaux yeux tu sais",
+							"Tu avais beau ne pas être mon style, je ne te changerai pour rien au monde",
+							"Parfois je pense à toi, et je souris... Pour rien... Parce que c'est toi",
+							"Tu as réussi à me faire manger des oignons",
+							"Tu es une bonne amante",
+							"Je ne regarderai des Secrets d'histoire avec personne d'autre",
+							"Tu inspires les gens",
+							"Je te prends souvent comme exemple",
+							"Tu as rencontré mes parents",
+							"Tu es celle avec laquelle j'ai envie de tout faire. Celle avec qui j'ai aussi envie de rien faire d'ailleurs",
+							"Je suis un homme chanceux",
+							"J'ai eu de la chance dans ma vie. Mais jamais autant que quand je t'ai plu",
+							"J'aime te tenir par les hanches",
+							"Je n'arrêterai de jouer que pour toi, ou nos enfants",
+							"Je ne quitterai une ranked en cours que pour toi",
+							"Tu me donnes envie de faire des enfants",
+							"J'aime m'entrainer à faire des enfants avec toi",
+							"J'aime te faire l'amour",
+							"Si je devais choisir entre le rayon alcool de mon supermarché et toi, je choisirais toi (mais on irait quand même au rayon alcool)",
+
+						];
+				let temp = type == "original" ? ori : type == "objectif" ? obj : coq;
+				let res = temp[Math.floor(Math.random()*temp.length)];
+				$("#theQuote").html(res);
+			}
+
+			$(document).ready(function() {
+				let rand = ["original", "objectif", "amoureux"];
+				newQuote(rand[Math.floor(Math.random()*rand.length)]);
+			});
+		</script>
+	</body>
+</html>

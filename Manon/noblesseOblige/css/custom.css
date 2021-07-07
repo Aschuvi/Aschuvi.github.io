@@ -29,9 +29,12 @@ header .container {
     height: 100%;
 }
 #compliment {
-    height: 100%;
+    height: 30%;
 }
-
+header #photo {
+    height: calc(70% - 4rem);
+    text-align: center;
+}
 
 /**************************************************************************
 ************************      CUSTOM STYLING      *************************
@@ -40,16 +43,12 @@ header img {
     max-height: 100%;
     max-width: 100%;
 }
-header #photo {
-    height: 100%;
-    text-align: left;
-}
 .header-heading {
   font-size: 2.75rem;
   /* line-height: 2.75rem; */
 }
 .header-subheading {
-  font-size: 1.25rem;
+  font-size: 2rem;
 }
 .want-more {
     margin: 1.25rem 0 1.5rem;
@@ -75,9 +74,6 @@ header #photo {
 
 .actions {
     margin-top: -12rem;
-}
-.actions .row {
-    margin: 0 100px;
 }
 .actions .new-quote-item {
     cursor: pointer;
@@ -223,25 +219,23 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
 **************************************************************************/
 
 @media (min-width: 768px) {
-	#container_page {
-		width: 750px;
-	}
 }
 @media (min-width: 992px) {
-	#container_page {
-		width: 970px;
-	}
 
+    .actions .row {
+        margin: 0 100px;
+    }
     .header-heading {
         font-size: 4rem;
         /* line-height: 3.5rem; */
     }
-    .header-subheading {
+    /* .header-subheading {
         font-size: 2rem;
+    } */
+    header #photo {
+        height: 100%;
+        text-align: left;
     }
 }
 @media (min-width: 1200px) {
-	#container_page {
-		width: 1170px;
-	}
 }

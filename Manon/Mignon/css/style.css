@@ -1,0 +1,135 @@
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+/* ==========================================================
+ * ======= Image en points ==================================
+ * ========================================================== */
+#zone {
+	display: block;
+	position: relative;
+	width: 512px;
+	height: 512px;
+	margin: 50px auto 0;
+	padding: 0;
+}
+.element {
+	position: absolute;
+	display: block;
+	border-radius: 50%;
+	margin: 0;
+	opacity: 1;
+}
+
+
+.col-1 {
+	width: 512px;
+	height: 512px;
+}
+.col-2 {
+	width: 256px;
+	height: 256px;
+}
+.col-3 {
+	width: 128px;
+	height: 128px;
+}
+.col-4 {
+	width: 64px;
+	height: 64px;
+}
+.col-5 {
+	width: 32px;
+	height: 32px;
+}
+.col-6 {
+	width: 16px;
+	height: 16px;
+}
+.col-7 {
+	width: 8px;
+	height: 8px;
+}
+.col-8 {
+	width: 4px;
+	height: 4px;
+}
+
+
+/* ==========================================================
+ * ======= Animation ========================================
+ * ========================================================== */
+.col-2.br { animation: col2br 0.4s; } .col-2.bl { animation: col2bl 0.4s; } .col-2.tr { animation: col2tr 0.4s; } .col-2.tl { animation: col2tl 0.4s; }
+.col-3.br { animation: col3br 0.4s; } .col-3.bl { animation: col3bl 0.4s; } .col-3.tr { animation: col3tr 0.4s; } .col-3.tl { animation: col3tl 0.4s; }
+.col-4.br { animation: col4br 0.4s; } .col-4.bl { animation: col4bl 0.4s; } .col-4.tr { animation: col4tr 0.4s; } .col-4.tl { animation: col4tl 0.4s; }
+.col-5.br { animation: col5br 0.4s; } .col-5.bl { animation: col5bl 0.4s; } .col-5.tr { animation: col5tr 0.4s; } .col-5.tl { animation: col5tl 0.4s; }
+.col-6.br { animation: col6br 0.4s; } .col-6.bl { animation: col6bl 0.4s; } .col-6.tr { animation: col6tr 0.4s; } .col-6.tl { animation: col6tl 0.4s; }
+.col-7.br { animation: col7br 0.4s; } .col-7.bl { animation: col7bl 0.4s; } .col-7.tr { animation: col7tr 0.4s; } .col-7.tl { animation: col7tl 0.4s; }
+.col-8.br { animation: col8br 0.4s; } .col-8.bl { animation: col8bl 0.4s; } .col-8.tr { animation: col8tr 0.4s; } .col-8.tl { animation: col8tl 0.4s; }
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes col2br { from { webkit-transform: translate(-128px, -128px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col2bl { from { webkit-transform: translate(128px, -128px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col2tr { from { webkit-transform: translate(-128px, 128px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col2tl { from { webkit-transform: translate(128px, 128px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col3br { from { webkit-transform: translate(-64px, -64px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col3bl { from { webkit-transform: translate(64px, -64px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col3tr { from { webkit-transform: translate(-64px, 64px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col3tl { from { webkit-transform: translate(64px, 64px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col4br { from { webkit-transform: translate(-32px, -32px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col4bl { from { webkit-transform: translate(32px, -32px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col4tr { from { webkit-transform: translate(-32px, 32px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col4tl { from { webkit-transform: translate(32px, 32px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col5br { from { webkit-transform: translate(-16px, -16px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col5bl { from { webkit-transform: translate(16px, -16px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col5tr { from { webkit-transform: translate(-16px, 16px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col5tl { from { webkit-transform: translate(16px, 16px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col6br { from { webkit-transform: translate(-8px, -8px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col6bl { from { webkit-transform: translate(8px, -8px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col6tr { from { webkit-transform: translate(-8px, 8px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col6tl { from { webkit-transform: translate(8px, 8px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col7br { from { webkit-transform: translate(-4px, -4px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col7bl { from { webkit-transform: translate(4px, -4px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col7tr { from { webkit-transform: translate(-4px, 4px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col7tl { from { webkit-transform: translate(4px, 4px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col8br { from { webkit-transform: translate(-2px, -2px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col8bl { from { webkit-transform: translate(2px, -2px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col8tr { from { webkit-transform: translate(-2px, 2px); } to { webkit-transform: translate(0px, 0px); } }
+@-webkit-keyframes col8tl { from { webkit-transform: translate(2px, 2px); } to { webkit-transform: translate(0px, 0px); } }
+/* Standard syntax */
+@keyframes col2br { from { transform: translate(-128px, -128px); } to { transform: translate(0px, 0px); } }
+@keyframes col2bl { from { transform: translate(128px, -128px); } to { transform: translate(0px, 0px); } }
+@keyframes col2tr { from { transform: translate(-128px, 128px); } to { transform: translate(0px, 0px); } }
+@keyframes col2tl { from { transform: translate(128px, 128px); } to { transform: translate(0px, 0px); } }
+@keyframes col3br { from { transform: translate(-64px, -64px); } to { transform: translate(0px, 0px); } }
+@keyframes col3bl { from { transform: translate(64px, -64px); } to { transform: translate(0px, 0px); } }
+@keyframes col3tr { from { transform: translate(-64px, 64px); } to { transform: translate(0px, 0px); } }
+@keyframes col3tl { from { transform: translate(64px, 64px); } to { transform: translate(0px, 0px); } }
+@keyframes col4br { from { transform: translate(-32px, -32px); } to { transform: translate(0px, 0px); } }
+@keyframes col4bl { from { transform: translate(32px, -32px); } to { transform: translate(0px, 0px); } }
+@keyframes col4tr { from { transform: translate(-32px, 32px); } to { transform: translate(0px, 0px); } }
+@keyframes col4tl { from { transform: translate(32px, 32px); } to { transform: translate(0px, 0px); } }
+@keyframes col5br { from { transform: translate(-16px, -16px); } to { transform: translate(0px, 0px); } }
+@keyframes col5bl { from { transform: translate(16px, -16px); } to { transform: translate(0px, 0px); } }
+@keyframes col5tr { from { transform: translate(-16px, 16px); } to { transform: translate(0px, 0px); } }
+@keyframes col5tl { from { transform: translate(16px, 16px); } to { transform: translate(0px, 0px); } }
+@keyframes col6br { from { transform: translate(-8px, -8px); } to { transform: translate(0px, 0px); } }
+@keyframes col6bl { from { transform: translate(8px, -8px); } to { transform: translate(0px, 0px); } }
+@keyframes col6tr { from { transform: translate(-8px, 8px); } to { transform: translate(0px, 0px); } }
+@keyframes col6tl { from { transform: translate(8px, 8px); } to { transform: translate(0px, 0px); } }
+@keyframes col7br { from { transform: translate(-4px, -4px); } to { transform: translate(0px, 0px); } }
+@keyframes col7bl { from { transform: translate(4px, -4px); } to { transform: translate(0px, 0px); } }
+@keyframes col7tr { from { transform: translate(-4px, 4px); } to { transform: translate(0px, 0px); } }
+@keyframes col7tl { from { transform: translate(4px, 4px); } to { transform: translate(0px, 0px); } }
+@keyframes col8br { from { transform: translate(-2px, -2px); } to { transform: translate(0px, 0px); } }
+@keyframes col8bl { from { transform: translate(2px, -2px); } to { transform: translate(0px, 0px); } }
+@keyframes col8tr { from { transform: translate(-2px, 2px); } to { transform: translate(0px, 0px); } }
+@keyframes col8tl { from { transform: translate(2px, 2px); } to { transform: translate(0px, 0px); } }
+
+/* ==========================================================
+ * ======= Bouton ===========================================
+ * ========================================================== */
+ #div_button {
+	width: 100%;
+	text-align: center;
+ }

@@ -68,6 +68,22 @@
 					</div>
 				</div>
 			</div>
+            <div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<span class="modal-title" id="modal_title2">Joyeux Noël !</span>
+						</div>
+						<div class="modal-body" id="modal_body2">
+							<p>Je te convie à un long week-end loin de Paris (énorme surprise).<p/>
+							<p>Non ce n'est pas à Amsterdam que je pensais mais à Hambourg (et peut être Berlin) ! <br/>
+							L'idée est d'aller dans un ville sympa où tu pourrais aussi voir ta copine un jour ou deux :)<p/>
+							<p>Sincèrement vôtres,<br/>
+							Simon &amp; Hector</p>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
@@ -76,7 +92,7 @@
 				ymd = new Date($.now());
 				d = ymd.getDate();
 				m = ymd.getMonth();
-				y = ymd.getYear();
+				y = ymd.getFullYear();
 				
 				if (y > 2018) {
 					$(".test").each(function() {

@@ -1,0 +1,175 @@
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Koeur Koeur Koeur</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css" >
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+	
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/tab.js"></script>
+</head>
+<body>
+	<div id="zone">
+		<span id="origine" class="element col-1" style="top: 0px; left: 0px" onmouseenter="splitElement($(this))" data-pixel-id="0"></span>
+	</div><!--
+	<div id="div_button">
+		<button id="flemme" onclick="cheat()">J'ai la flemme !</button>
+	</div>-->
+	<!--<div id="popupconfirmation">
+		<p>Fanfreluche !</p>
+		<p>Cliquer sur oui est passible de voir quelqu'un louffer dans votre piaule pour vous emboucaner !</p>
+	</div>-->
+	<script type="text/javascript">
+		var tab = getTab();
+		var tabInterval;
+		var cptTabInt;
+		
+		$(document).ready(function() {
+			// définition du premier point
+			$("#origine").css("background-color", "#"+tab[0]);
+			tabInterval = [];
+			cptTabInt = 0;
+		});
+		
+		function cheat() {
+			$("#zone").empty();
+			
+			var node = $("#zone");
+			var tailleTot = node.width();
+			var top, left;
+			for(i=5461; i<21845; i--) {
+				bottom = tailleTot / 128 * Math.floor(i/128);
+				right = tailleTot / 128 * (i%128) ;
+				node.append('<span class="element col-8" style="bottom:'+bottom+'px;right:'+right+'px;background-color:#'+tab[i]+'"></span>')
+			}
+		}
+		
+		// transformation de la div en boîte de dialogue
+		$("#popupconfirmation").dialog( {
+			autoOpen: false,
+			width: 400,
+			buttons: [
+				{
+					text: "Oui",
+					click: function() {
+						cheat();
+						$(this).dialog("close");
+					}
+				},
+				{
+					text: "Non",
+					click: function () {
+						$(this).dialog("close");
+					}
+				}
+			]
+		});
+		// définition de l'ouverture de la boîte de dialogue
+		$("#flemme").click(function(event) {
+			$("#popupconfirmation").dialog("open");
+			event.preventDefault();
+		});
+		
+		function splitElement(e) {
+			var tailleTot = $("#zone").width(); // container size
+			var elementClass;
+			
+			var id = parseInt(e.data("pixel-id")); // id of the dot in the tab array
+			
+			var nbDotByRow;	// number of dot of the size of the spliting dot fitting in a row
+			var idTabFirstDotOfGranul; // first index of the dot of 1 size smaller the one of the spliting dot in the tab
+			
+			var nbDotByRowNext; // same for the dot one size smaller
+			var idTabFirstDotOfGranulNext; // same for the dot one size smaller
+			
+			var rowFromFirstDotOfGranul; // nb row from the FirstDotOfGranul
+			var columnFromFirstDotOfGranul; // nb column from the FirstDotOfGranul
+			
+			if (e.hasClass("col-1")) {
+				nbDotByRow = 1;
+				idTabFirstDotOfGranul = 0;
+				elementClass = 2;
+			}
+			else if (e.hasClass("col-2")) {
+				nbDotByRow = 2;
+				idTabFirstDotOfGranul = 1;
+				elementClass = 3;
+			}
+			else if (e.hasClass("col-3")) {
+				nbDotByRow = 4;
+				idTabFirstDotOfGranul = 5;
+				elementClass = 4;
+			}
+			else if (e.hasClass("col-4")) {
+				nbDotByRow = 8;
+				idTabFirstDotOfGranul = 21;
+				elementClass = 5;
+			}
+			else if (e.hasClass("col-5")) {
+				nbDotByRow = 16;
+				idTabFirstDotOfGranul = 85;
+				elementClass = 6;
+			}
+			else if (e.hasClass("col-6")) {
+				nbDotByRow = 32;
+				idTabFirstDotOfGranul = 341;
+				elementClass = 7;
+			}
+			else if (e.hasClass("col-7")) {
+				nbDotByRow = 64;
+				idTabFirstDotOfGranul = 1365;
+				elementClass = 8;
+			}
+			nbDotByRowNext = 2*nbDotByRow;
+			idTabFirstDotOfGranulNext = idTabFirstDotOfGranul + nbDotByRow*nbDotByRow;
+			
+			rowFromFirstDotOfGranul = Math.floor((id - idTabFirstDotOfGranul) / nbDotByRow);
+			columnFromFirstDotOfGranul = (id - idTabFirstDotOfGranul) % nbDotByRow;
+			
+			var idbr, idbl, idtr, idtl; // id tab of the resulting 4 dots of the spliting dot
+			idbr = idTabFirstDotOfGranulNext + 2 * (nbDotByRowNext * rowFromFirstDotOfGranul + columnFromFirstDotOfGranul);
+			idbl = idbr +1;
+			idtr = idbr + nbDotByRowNext;
+			idtl = idbr + nbDotByRowNext + 1;
+			
+			var sizeOfDot, top, right, left, bottom;
+			sizeOfDot = tailleTot / nbDotByRowNext;
+			
+			bottom = 2 * rowFromFirstDotOfGranul * sizeOfDot;
+			right = 2 * columnFromFirstDotOfGranul * sizeOfDot;
+			top = (2*rowFromFirstDotOfGranul +1) * sizeOfDot;
+			left = (2*columnFromFirstDotOfGranul +1) * sizeOfDot;
+			
+			var s_elbr, s_elbl, s_eltr, s_eltl;
+			s_elbr = '<span id="'+ idbr +'" class="element br col-'+elementClass+'" style="bottom:'+bottom+'px; right:'+right+'px;background-color:#'+tab[idbr]+'" data-pixel-id="'+idbr+'"';
+			s_elbl = '<span id="'+ idbl +'" class="element bl col-'+elementClass+'" style="bottom:'+bottom+'px; right:'+left+'px;background-color:#'+tab[idbl]+'" data-pixel-id="'+idbl+'"';
+			s_eltr = '<span id="'+ idtr +'" class="element tr col-'+elementClass+'" style="bottom:'+top+'px; right:'+right+'px;background-color:#'+tab[idtr]+'" data-pixel-id="'+idtr+'"';
+			s_eltl = '<span id="'+ idtl +'" class="element tl col-'+elementClass+'" style="bottom:'+top+'px; right:'+left+'px;background-color:#'+tab[idtl]+'" data-pixel-id="'+idtl+'"';
+			if (elementClass != 8) {
+				tabInterval[cptTabInt] = setInterval(function() {
+						$("#"+idbr).attr("onmouseenter", "splitElement($(this))");
+						$("#"+idbl).attr("onmouseenter", "splitElement($(this))");
+						$("#"+idtr).attr("onmouseenter", "splitElement($(this))");
+						$("#"+idtl).attr("onmouseenter", "splitElement($(this))");
+						// e.remove();
+						clearInterval(tabInterval[cptTabInt]);
+					}, 400);
+				cptTabInt ++;
+				/*
+				s_elbr += ' onmouseenter="splitElement($(this))"';
+				s_elbl += ' onmouseenter="splitElement($(this))"';
+				s_eltr += ' onmouseenter="splitElement($(this))"';
+				s_eltl += ' onmouseenter="splitElement($(this))"';*/
+			}
+			e.parent().append(s_elbr + '></span>');
+			e.parent().append(s_elbl + '></span>');
+			e.parent().append(s_eltr + '></span>');
+			e.parent().append(s_eltl + '></span>');
+			e.remove();
+			/*e.css("opacity", "0");
+			e.attr("onmouseenter", "");*/
+		}
+	</script>
+</body>
+</html>

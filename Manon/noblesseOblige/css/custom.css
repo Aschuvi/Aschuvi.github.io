@@ -48,7 +48,7 @@ header img {
   /* line-height: 2.75rem; */
 }
 .header-subheading {
-  font-size: 2rem;
+  font-size: 3rem;
 }
 .want-more {
     margin: 1.25rem 0 1.5rem;
@@ -197,7 +197,7 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
 .blockquote h1 {
     position: relative;
     color: #FFFFFF;
-    font-size: 40px;
+    font-size: 5rem;
     font-weight: 800;
     line-height: 1;
     margin: 0;
@@ -229,12 +229,15 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
         font-size: 4rem;
         /* line-height: 3.5rem; */
     }
-    /* .header-subheading {
+    .header-subheading {
         font-size: 2rem;
-    } */
+    }
     header #photo {
         height: 100%;
         text-align: left;
+    }
+    .blockquote h1 {
+        font-size: 4rem;
     }
 }
 @media (min-width: 1200px) {

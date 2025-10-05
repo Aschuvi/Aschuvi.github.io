@@ -9,6 +9,22 @@
 </head>
 <body>
     
+    <!-- loading screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="assets/images/Champi.png" alt="Loading" class="loading-character">
+            </div>
+            <h2 class="loading-title">Chargement...</h2>
+            <div class="loading-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="loading-text" id="loading-text">Préparation du jeu...</div>
+            </div>
+        </div>
+    </div>
+
     <!-- background music -->
     <audio id="background-music" loop>
         <source src="assets/musics/background-music.mp3" type="audio/mpeg">
@@ -18,9 +34,16 @@
     <div class="game-wrapper">
         <header>
             <div class="game-info">
-                <div id="moves-counter">Moves left: X</div>
-                <button id="reset-btn">↺ Reset</button>
-                <button id="mute-btn">🔊</button>
+                <div class="buttons-row">
+                    <button id="reset-btn">↺ Reset</button>
+                    <button id="mute-btn">♪</button>
+                </div>
+                <div class="moves-progress-container">
+                    <div class="moves-progress-bar">
+                        <div class="moves-progress-fill" id="moves-progress-fill"></div>
+                        <div class="moves-counter-text" id="moves-counter-text">0</div>
+                    </div>
+                </div>
             </div>
         </header>
 
@@ -32,7 +55,7 @@
     </div>
 
     <!-- success overlay -->
-    <div id="success-overlay" class="overlay hidden">
+    <div id="success-overlay" class="overlay">
         <div class="overlay-content">
             <div class="speaker-image-container">
                 <img id="speaker-image" src="" alt="Speaker" class="hidden">
@@ -55,6 +78,7 @@
         </div>
     </div>
 
+    <script src="js/AssetPreloader.js"></script>
     <script src="js/game/Level.js"></script>
     <script src="js/game/Game.js"></script>
     <script src="js/levels.js"></script>

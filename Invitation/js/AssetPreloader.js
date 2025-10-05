@@ -19,7 +19,7 @@ class AssetPreloader {
                 'assets/images/enemy_1_left.png',
                 'assets/images/enemy_1.png',
                 'assets/images/Enemy_down.png',
-                'assets/images/enemy_hit.png',
+                'assets/images/Enemy_hit.png',
                 'assets/images/enemy_left.png',
                 'assets/images/enemy.png',
                 'assets/images/key.png',

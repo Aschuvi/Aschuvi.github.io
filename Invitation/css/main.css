@@ -91,6 +91,23 @@
     }
 }
 
+@keyframes growDefeat {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#speaker-image.defeated {
+    animation: growDefeat 2s ease-out forwards;
+    transform-origin: center;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: var(--background-color);

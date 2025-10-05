@@ -266,7 +266,7 @@ class Game {
             setTimeout(() => {
                 questionContainer.classList.add('hidden');
                 this.currentQuestionIndex = 0; // Reset question index when restarting level
-                this.gameOver();
+                this.gameOver(false); // false = wrong answer
             }, 1000);
         }
     }
@@ -352,7 +352,7 @@ class Game {
         if (this.currentLevel.isWon()) {
             this.levelComplete();
         } else if (this.currentLevel.isGameOver()) {
-            this.gameOver();
+            this.gameOver(true); // true = out of moves
         }
     }
 
@@ -565,13 +565,32 @@ class Game {
         );
     }
 
-    gameOver() {
+    gameOver(isOutOfMoves = false) {
         this.isGameActive = false;
         this.preventDialogueProgress = true;
         document.getElementById('success-overlay').classList.remove('hidden');
         
-        // Show game over dialogue
+        const speakerImage = document.getElementById('speaker-image');
         const dialogueContainer = document.getElementById('dialogue-container');
+        
+        if (isOutOfMoves) {
+            // Show champ_down.png image for 1 second first (only when out of moves)
+            speakerImage.src = 'assets/images/champ_down.png';
+            speakerImage.classList.remove('hidden');
+            speakerImage.classList.add('defeated');
+            dialogueContainer.classList.add('hidden');
+            
+            // After 1 second, show the game over dialogue
+            setTimeout(() => {
+                this.showGameOverDialogue(speakerImage, dialogueContainer);
+            }, 2000);
+        } else {
+            // Wrong answer - show dialogue immediately
+            this.showGameOverDialogue(speakerImage, dialogueContainer);
+        }
+    }
+    
+    showGameOverDialogue(speakerImage, dialogueContainer) {
         const dialogueText = document.getElementById('dialogue-text');
         let speakerElement = dialogueContainer.querySelector('.speaker-name');
         
@@ -581,10 +600,9 @@ class Game {
             dialogueContainer.insertBefore(speakerElement, dialogueText);
         }
         
-        const speakerImage = document.getElementById('speaker-image');
-        speakerImage.src = 'assets/images/ChampiAngry.png'; // Different image for questions
-        speakerImage.classList.remove('hidden');
-
+        // Change to Manon's angry image
+        speakerImage.src = 'assets/images/ChampiAngry.png';
+        speakerImage.classList.remove('hidden', 'defeated');
         speakerElement.textContent = 'Manon';
         dialogueText.textContent = 'Simon, tu fais de la merde !';
         dialogueContainer.classList.remove('hidden');

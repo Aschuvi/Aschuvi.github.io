@@ -1,7 +1,11 @@
 const INTRO_DIALOGUE = [
     "Simon: \"XXX, j'ai besoin de ton aide !\"",
     "Simon: \"Manon a tout préparé pour le PACS et je n'ai rien suivi\"",
-    "Simon: \"Il faut que tu m'aides à retrouver les infos pour les invitations !\""
+    "Simon: \"Il faut que tu m'aides à retrouver les infos pour les invitations !\"",
+    "Jean-Michel Explications: \"Le but est d'attraper l'invitation 💌\"",
+    "Jean-Michel Explications: \"Simon ne se laisse pas tenter par les succubes, il peut les repousser !\"",
+    "Jean-Michel Explications: \"De même, il déplacerait des montagnes pour être à la hauteur. Enfin pas des montagnes. Mais des gros cailloux 🪨\"",
+    "Jean-Michel Explications: \"Déplace-toi avec les flèches ou en cliquant sur la case où tu veux aller.\""
 ];
 
 const LEVEL_DIALOGUES = {

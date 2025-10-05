@@ -34,9 +34,16 @@
     <div class="game-wrapper">
         <header>
             <div class="game-info">
-                <div id="moves-counter">Moves left: X</div>
-                <button id="reset-btn">↺ Reset</button>
-                <button id="mute-btn">🔊</button>
+                <div class="buttons-row">
+                    <button id="reset-btn">↺ Reset</button>
+                    <button id="mute-btn">♪</button>
+                </div>
+                <div class="moves-progress-container">
+                    <div class="moves-progress-bar">
+                        <div class="moves-progress-fill" id="moves-progress-fill"></div>
+                        <div class="moves-counter-text" id="moves-counter-text">0</div>
+                    </div>
+                </div>
             </div>
         </header>
 

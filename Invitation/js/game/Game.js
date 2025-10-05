@@ -103,11 +103,11 @@ class Game {
         muteBtn.addEventListener('click', () => {
             if (music.muted) {
                 music.muted = false;
-                muteBtn.textContent = '🔊';
+                muteBtn.textContent = '♪';
                 muteBtn.classList.remove('muted');
             } else {
                 music.muted = true;
-                muteBtn.textContent = '🔈';
+                muteBtn.textContent = '♫';
                 muteBtn.classList.add('muted');
             }
         });
@@ -182,6 +182,10 @@ class Game {
         }
         else if (speaker === 'Manon') {
             speakerImage.src = 'assets/images/Champi.png'; // Different image for questions
+            speakerImage.classList.remove('hidden');
+        }
+        else if (speaker === 'Jean-Michel Explications') {
+            speakerImage.src = 'assets/images/JeanMichelExplications.png'; // Different image for questions
             speakerImage.classList.remove('hidden');
         }
         else {
@@ -356,7 +360,8 @@ class Game {
         Game.debug('Game.render');
         
         const gridElement = document.getElementById('game-grid');
-        const movesElement = document.getElementById('moves-counter');
+        const movesProgressFill = document.getElementById('moves-progress-fill');
+        const movesCounterText = document.getElementById('moves-counter-text');
 
         // Clear existing grid
         gridElement.innerHTML = '';
@@ -417,18 +422,18 @@ class Game {
             gridElement.appendChild(rowElement);
         });
 
-        // Update moves counter
+        // Update moves counter progress bar
         const movesLeft = this.currentLevel.maxMoves - this.currentLevel.currentMoves;
-        movesElement.textContent = `Moves left: ${movesLeft}`;
+        const progressPercentage = (movesLeft / this.currentLevel.maxMoves) * 100;
         
-        // Update warning classes
-        movesElement.classList.remove('warning', 'danger');
-        const movePercentage = (movesLeft / this.currentLevel.maxMoves) * 100;
+        movesProgressFill.style.width = `${progressPercentage}%`;
+        movesCounterText.textContent = `${movesLeft}`;
         
-        if (movePercentage <= 20) {
-            movesElement.classList.add('danger');
-        } else if (movePercentage <= 40) {
-            movesElement.classList.add('warning');
+        // Change text color based on progress - if more than 50% filled, use white text
+        if (progressPercentage > 50) {
+            movesCounterText.classList.add('over-fill');
+        } else {
+            movesCounterText.classList.remove('over-fill');
         }
     }
 
@@ -529,7 +534,12 @@ class Game {
         else if (speaker === 'Manon') {
             speakerImage.src = dialogueType === 'intro' ? 'assets/images/ChampiAngry.png' : 'assets/images/Champi.png';
             speakerImage.classList.remove('hidden');
-        } else {
+        }
+        else if (speaker === 'Jean-Michel Explications') {
+            speakerImage.src = 'assets/images/JeanMichelExplications.png'; // Different image for questions
+            speakerImage.classList.remove('hidden');
+        }
+        else {
         speakerImage.classList.add('hidden');
         }
 

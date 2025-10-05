@@ -523,11 +523,11 @@ class Game {
         // Update speaker image
         const speakerImage = document.getElementById('speaker-image');
         if (speaker === 'Simon') {
-            speakerImage.src = dialogueType === 'intro' ? 'assets/images/champWoups.png' : 'assets/images/ChampUuuu.png';
+            speakerImage.src = dialogueType === 'intro' ? 'assets/images/ChampWoups.png' : 'assets/images/ChampUuuu.png';
             speakerImage.classList.remove('hidden');
         }  
         else if (speaker === 'Manon') {
-            speakerImage.src = dialogueType === 'intro' ? 'assets/images/champiAngry.png' : 'assets/images/Champi.png';
+            speakerImage.src = dialogueType === 'intro' ? 'assets/images/ChampiAngry.png' : 'assets/images/Champi.png';
             speakerImage.classList.remove('hidden');
         } else {
         speakerImage.classList.add('hidden');

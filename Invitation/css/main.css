@@ -1,0 +1,923 @@
+:root {
+    --vh: 1vh;
+    --cell-size: min(48px, calc((100vh - 150px) / 8), calc(90vw / 9));
+    --primary-color: #333;
+    --background-color: #f5f5f5;
+    --grid-background: #fff;
+    --border-color: #ccc;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    min-height: calc(var(--vh) * 100);
+    display: flex;
+    flex-direction: column;
+}
+
+.game-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+    max-height: 100vh;
+    height: 100%;
+    overflow: hidden;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    flex-shrink: 0;
+}
+
+header h1 {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    margin: 0.3rem 0;
+}
+
+.game-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0.3rem 0;
+}
+
+#moves-counter {
+    font-size: clamp(0.8rem, 3vw, 1rem);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+/* Add warning colors when moves are running low */
+#moves-counter.warning {
+    color: #FFA500; /* Orange for warning */
+}
+
+#moves-counter.danger {
+    color: #FF0000; /* Red for danger */
+}
+
+#reset-btn {
+    background-color: #666;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.3rem 0.8rem;
+    font-size: clamp(0.8rem, 3vw, 1rem);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: background-color 0.2s;
+}
+
+#reset-btn:hover {
+    background-color: #555;
+}
+
+#reset-btn:active {
+    background-color: #444;
+}
+
+#mute-btn {
+    background-color: #666;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.3rem 0.8rem;
+    font-size: clamp(0.8rem, 3vw, 1rem);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: background-color 0.2s;
+}
+
+#mute-btn:hover {
+    background-color: #555;
+}
+
+#mute-btn:active {
+    background-color: #444;
+}
+
+#mute-btn.muted {
+    background-color: #888;
+}
+
+.game-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+#game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    width: 100%;
+    max-width: 90vw;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* Level 1 background */
+#game-grid.level-1 {
+    background-image: url('../assets/images/levels/Level1.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Level 2 background */
+#game-grid.level-2 {
+    background-image: url('../assets/images/levels/Level2.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Level 3 background */
+#game-grid.level-3 {
+    background-image: url('../assets/images/levels/Level3.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Level 4 background */
+#game-grid.level-4 {
+    background-image: url('../assets/images/levels/Level4.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Level 5 background */
+#game-grid.level-5 {
+    background-image: url('../assets/images/levels/Level5.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Level 6 background */
+#game-grid.level-6 {
+    background-image: url('../assets/images/levels/Level6.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Level 7 background */
+#game-grid.level-7 {
+    background-image: url('../assets/images/levels/Level7.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.grid-row {
+    display: flex;
+}
+
+.grid-cell {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    /* border: 1px solid var(--border-color); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: calc(var(--cell-size) * 0.4);
+}
+
+/* Cell types */
+.grid-cell.p {
+    position: relative;
+    color: transparent;
+}
+
+@keyframes playerIdleLeft {
+    0%, 45% {
+        background-image: url('../assets/images/champ_rest_1.png');
+    }
+    50%, 95% {
+        background-image: url('../assets/images/champ_rest_2.png');
+    }
+    100% {
+        background-image: url('../assets/images/champ_rest_1.png');
+    }
+}
+
+@keyframes playerIdleRight {
+    0%, 45% {
+        background-image: url('../assets/images/champ_rest_1_right.png');
+    }
+    50%, 95% {
+        background-image: url('../assets/images/champ_rest_2_right.png');
+    }
+    100% {
+        background-image: url('../assets/images/champ_rest_1_right.png');
+    }
+}
+
+.grid-cell.p::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    transform: translate(-50%, 0);
+    background-image: url('../assets/images/champ_rest_1.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+    animation: playerIdleLeft 1.2s steps(1) infinite;
+}
+
+.grid-cell.p.facing-right::before {
+    background-image: url('../assets/images/champ_rest_1_right.png');
+    animation: playerIdleRight 1.2s steps(1) infinite;
+}
+
+.grid-cell.p.winning::before {
+    animation: none;
+    background-image: url('../assets/images/champ_win.png');
+}
+
+.grid-cell.p.punch::before {
+    animation: none;
+    background-image: url('../assets/images/champ_hit.png');
+}
+
+.grid-cell.p.facing-right.punch::before {
+    animation: none;
+    background-image: url('../assets/images/champ_hit_right.png');
+}
+
+.grid-cell.r {
+    position: relative;
+    color: transparent;
+}
+
+.grid-cell.r::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 95%;
+    height: 95%;
+    transform: translate(-50%, -50%);
+    background-image: url('../assets/images/rock.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.grid-cell.t, .grid-cell.tp, .grid-cell.tr, .grid-cell.te {
+    position: relative;
+}
+
+/* Base style for traps */
+.grid-cell.t::after, .grid-cell.tp::after, .grid-cell.tr::after, .grid-cell.te::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    height: 90%;
+    transform: translate(-50%, -50%);
+    background-image: url('../assets/images/spikes_down.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+}
+
+/* Style for active traps */
+.grid-cell.t.active::after, .grid-cell.tp.active::after, .grid-cell.tr.active::after, .grid-cell.te.active::after {
+    background-image: url('../assets/images/spikes_up.png');
+}
+
+/* Remove background for standalone trap */
+.grid-cell.t {
+    color: transparent;
+}
+
+/* Style for objects on traps */
+.grid-cell.tp {
+    position: relative;
+    color: transparent;
+}
+
+.grid-cell.tp::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    transform: translate(-50%, 0);
+    background-image: url('../assets/images/champ_rest_1.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+    animation: playerIdleLeft 1.2s steps(1) infinite;
+}
+
+.grid-cell.tp.facing-right::before {
+    background-image: url('../assets/images/champ_rest_1_right.png');
+    animation: playerIdleRight 1.2s steps(1) infinite;
+}
+
+.grid-cell.tp.winning::before {
+    animation: none;
+    background-image: url('../assets/images/champ_win.png');
+}
+
+.grid-cell.tp.punch::before {
+    animation: none;
+    background-image: url('../assets/images/champ_hit.png');
+}
+
+.grid-cell.tp.facing-right.punch::before {
+    animation: none;
+    background-image: url('../assets/images/champ_hit_right.png');
+}
+
+/* Rock on trap - use ::before for rock image to not conflict with trap ::after */
+.grid-cell.tr {
+    position: relative;
+    color: transparent;
+}
+
+.grid-cell.tr::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 95%;
+    height: 95%;
+    transform: translate(-50%, -50%);
+    background-image: url('../assets/images/rock.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+}
+
+/* Enemy on trap - use ::before for enemy image to not conflict with trap ::after */
+.grid-cell.te {
+    position: relative;
+    color: transparent;
+}
+
+.grid-cell.te::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 110%;
+    height: 110%;
+    transform: translate(-50%, 0);
+    background-image: url('../assets/images/enemy.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+    animation: enemyIdle 0.8s steps(1) infinite;
+}
+
+.grid-cell.g {
+    position: relative;
+    color: transparent;
+}
+
+.grid-cell.g::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    height: 90%;
+    transform: translate(-50%, -50%);
+    background-image: url('../assets/images/letter.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+    animation: keyPulse 1.5s ease-in-out infinite;
+}
+
+/* .grid-cell.x {
+    background-color: #9E9E9E;
+} */
+
+.grid-cell.c {
+    position: relative;
+    color: transparent;
+}
+
+.grid-cell.c::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 110%;
+    height: 110%;
+    transform: translate(-50%, -50%);
+    background-image: url('../assets/images/chest.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.grid-cell.c::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 35%;
+    height: 35%;
+    transform: translate(-50%, -50%);
+    background-image: url('../assets/images/lock.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: lockPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes keyPulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+@keyframes lockPulse {
+    0% {
+        transform: translate(-55%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-55%, -50%) scale(1.2);
+    }
+    100% {
+        transform: translate(-55%, -50%) scale(1);
+    }
+}
+
+.grid-cell[class*="k"] {
+    position: relative;
+}
+
+.grid-cell[class*="k"]::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url('../assets/images/key.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+    animation: keyPulse 1.5s ease-in-out infinite;
+}
+
+/* Keep original colors for objects on traps */
+.grid-cell.kr {
+    background-image: url('../assets/images/rock.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: transparent;
+}
+
+/* Hide key image when combined with rock */
+.grid-cell.kr::before {
+    display: none;
+}
+
+.grid-cell.ke {
+    position: relative;
+    color: transparent;
+}
+
+.grid-cell.ke::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 110%;
+    height: 110%;
+    transform: translate(-50%, 0);
+    background-image: url('../assets/images/enemy.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: enemyIdle 0.8s steps(1) infinite;
+}
+
+@keyframes enemyIdle {
+    0%, 45% {
+        background-image: url('../assets/images/enemy.png');
+    }
+    50%, 95% {
+        background-image: url('../assets/images/enemy_1.png');
+    }
+    100% {
+        background-image: url('../assets/images/enemy.png');
+    }
+}
+
+@keyframes enemyDeath {
+    0%, 100% {
+        background-image: url('../assets/images/enemy_down.png');
+    }
+}
+
+.grid-cell.e {
+    position: relative;
+    color: transparent;
+}
+
+.grid-cell.e::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 110%;
+    height: 110%;
+    transform: translate(-50%, 0);
+    background-image: url('../assets/images/enemy.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: enemyIdle 0.8s steps(1) infinite;
+}
+
+.grid-cell.e.hit::after, .grid-cell.te.hit::after, .grid-cell.ke.hit::after {
+    animation: none;
+    background-image: url('../assets/images/enemy_hit.png');
+}
+
+.grid-cell.e.dying::after, .grid-cell.te.dying::after, .grid-cell.ke.dying::after {
+    width: 100%;
+    height: 100%;
+    animation: enemyDeath 0.3s steps(1) forwards;
+}
+
+
+@media (max-width: 768px) {
+    :root {
+        --cell-size: min(75px, calc((100vh - 120px) / 9), calc((90vw) / 9));
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --cell-size: min(48px, calc((100vh - 100px) / 9), calc((90vw) / 9));
+    }
+    
+    .controls-grid {
+        gap: 0.3rem;
+    }
+    
+    #game-grid {
+        padding: 2px;
+    }
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:   #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.overlay.hidden {
+    display: none;
+}
+
+.overlay-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    max-width: 90vw;
+}
+
+.speaker-image-container {
+    margin-bottom: 1rem;
+}
+
+#speaker-image {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+#speaker-image.hidden {
+    display: none;
+}
+
+.overlay-content h2 {
+    color: #4CAF50;
+    margin-top: 0;
+}
+
+#next-level-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+#next-level-btn:hover {
+    background-color: #45a049;
+}
+
+/* Question dialogue styles */
+.overlay {
+    cursor: pointer;
+}
+
+#dialogue-container {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#dialogue-container.hidden {
+    display: none;
+}
+
+.speaker-name {
+    color: #053982;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+#dialogue-text {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #333;
+    line-height: 1.4;
+    text-align: center;
+}
+
+#dialogue-prompt {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+    text-align: center;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+#question-container {
+    margin-top: 1.5rem;
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#question-container.hidden {
+    display: none;
+}
+
+#question-speaker {
+    color: #053982;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+#question-text {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #333;
+    text-align: center;
+}
+
+#options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.option-button {
+    background-color: #f0f0f0;
+    border: 2px solid #ddd;
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1rem;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.option-button:hover {
+    background-color: #e8e8e8;
+    border-color: #ccc;
+}
+
+.option-button.correct {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #45a049;
+}
+
+.option-button.incorrect {
+    background-color: #f44336;
+    color: white;
+    border-color: #d32f2f;
+}
+
+#feedback-text {
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    background-color: #f8f8f8;
+    border-left: 4px solid #4CAF50;
+}
+
+#feedback-text.hidden {
+    display: none;
+}
+
+#continue-btn {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+#continue-btn:hover {
+    background-color: #1976D2;
+}
+
+#continue-btn.hidden {
+    display: none;
+}
+
+/* End Screen Styles */
+#end-screen {
+    color: #333;
+}
+
+.end-screen-content {
+    background: white;
+    color: #333;
+    padding: 3rem;
+    border-radius: 4px;
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+    animation: endScreenFadeIn 0.6s ease-out;
+}
+
+@keyframes endScreenFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.end-screen-content h1 {
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.event-text {
+    text-align: center;
+    line-height: 1.6;
+}
+
+.event-text p {
+    color: #666;
+    font-size: 1rem;
+    margin: 0 0 1.5rem 0;
+}
+
+.event-text p:last-child {
+    margin-bottom: 0;
+    color: #333;
+    font-weight: 500;
+}
+
+.event-text strong {
+    color: #333;
+    font-weight: 600;
+}
+
+.confirmation-button-container {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.confirmation-button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.confirmation-button:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.confirmation-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .end-screen-content {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .end-screen-content h1 {
+        font-size: 1.5rem;
+    }
+    
+    .event-details {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    /* :root {
+        --cell-size: 40px;
+    } */
+}

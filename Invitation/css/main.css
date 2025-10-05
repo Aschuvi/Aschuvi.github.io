@@ -742,7 +742,7 @@ header h1 {
 
 .grid-cell.e.hit::after, .grid-cell.te.hit::after, .grid-cell.ke.hit::after {
     animation: none;
-    background-image: url('../assets/images/enemy_hit.png');
+    background-image: url('../assets/images/Enemy_hit.png');
 }
 
 .grid-cell.e.dying::after, .grid-cell.te.dying::after, .grid-cell.ke.dying::after {

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitation PACS</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    
+    <!-- background music -->
+    <audio id="background-music" loop>
+        <source src="assets/musics/background-music.mp3" type="audio/mpeg">
+    </audio>
+    
+    <!-- game wrapper -->
+    <div class="game-wrapper">
+        <header>
+            <div class="game-info">
+                <div id="moves-counter">Moves left: X</div>
+                <button id="reset-btn">↺ Reset</button>
+                <button id="mute-btn">🔊</button>
+            </div>
+        </header>
+
+        <div class="game-layout">
+            <div id="game-container">
+                <div id="game-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- success overlay -->
+    <div id="success-overlay" class="overlay hidden">
+        <div class="overlay-content">
+            <div class="speaker-image-container">
+                <img id="speaker-image" src="" alt="Speaker" class="hidden">
+            </div>
+            <div id="dialogue-container" class="hidden">
+                <p id="dialogue-text"></p>
+                <div id="dialogue-prompt">...</div>
+            </div>
+            <div id="question-container" class="hidden">
+                <div id="question-speaker"></div>
+                <div id="question-text"></div>
+                <div id="options-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- end screen overlay -->
+    <div id="end-screen" class="overlay hidden">
+        <div class="end-screen-content">
+        </div>
+    </div>
+
+    <script src="js/game/Level.js"></script>
+    <script src="js/game/Game.js"></script>
+    <script src="js/levels.js"></script>
+    <script src="js/questions.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

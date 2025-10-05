@@ -550,7 +550,7 @@ header h1 {
 
 @keyframes enemyDeath {
     0%, 100% {
-        background-image: url('../assets/images/enemy_down.png');
+        background-image: url('../assets/images/Enemy_down.png');
     }
 }
 

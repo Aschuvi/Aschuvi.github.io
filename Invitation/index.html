@@ -9,6 +9,22 @@
 </head>
 <body>
     
+    <!-- loading screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="assets/images/Champi.png" alt="Loading" class="loading-character">
+            </div>
+            <h2 class="loading-title">Chargement...</h2>
+            <div class="loading-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="loading-text" id="loading-text">Préparation du jeu...</div>
+            </div>
+        </div>
+    </div>
+
     <!-- background music -->
     <audio id="background-music" loop>
         <source src="assets/musics/background-music.mp3" type="audio/mpeg">
@@ -55,6 +71,7 @@
         </div>
     </div>
 
+    <script src="js/AssetPreloader.js"></script>
     <script src="js/game/Level.js"></script>
     <script src="js/game/Game.js"></script>
     <script src="js/levels.js"></script>

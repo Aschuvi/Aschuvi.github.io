@@ -152,3 +152,49 @@ const LEVEL_QUESTIONS = {
         }
     ]
 };
+
+// Clues for each level
+const LEVEL_CLUES = {
+    0: {
+        speaker: "Jean-Michel Explications",
+        speakerImage: "assets/images/JeanMichelExplications.png",
+        text: "Tu dois attraper l'invitation 💌, pas besoin de se débarasser de tous les ennemis.",
+        image: null
+    },
+    1: {
+        speaker: "Jean-Michel Explications",
+        speakerImage: "assets/images/JeanMichelExplications.png",
+        text: "Les piques consommes 2 points d'action. Le chemin le plus court n'est pas forcément le plus rapide.",
+        image: null
+    },
+    2: {
+        speaker: "Jean-Michel Explications",
+        speakerImage: "assets/images/JeanMichelExplications.png",
+        text: "L'aller et le retour d'un même chemin ne sont pas forcément identiques.",
+        image: null
+    },
+    3: {
+        speaker: "Jean-Michel Explications",
+        speakerImage: "assets/images/JeanMichelExplications.png",
+        text: "Je me demande bien où ce rocher peut aller pour ne pas me gêner...",
+        image: "assets/images/clues/level4.png"
+    },
+    4: {
+        speaker: "Jean-Michel Explications",
+        speakerImage: "assets/images/JeanMichelExplications.png",
+        text: "Tout est une question de timing.",
+        image: null
+    },
+    5: {
+        speaker: "Jean-Michel Explications",
+        speakerImage: "assets/images/JeanMichelExplications.png",
+        text: "Il n'y a pas assez de place en dessous de la clé pour ces deux rochers.",
+        image: "assets/images/clues/Level6.png"
+    },
+    6: {
+        speaker: "Jean-Michel Explications",
+        speakerImage: "assets/images/JeanMichelExplications.png",
+        text: "Où est-ce que cette pierre peut aller pour ne pas me gêner...",
+        image: "assets/images/clues/Level7.png"
+    }
+};

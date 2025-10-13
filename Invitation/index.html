@@ -36,6 +36,7 @@
             <div class="game-info">
                 <div class="buttons-row">
                     <button id="reset-btn">↺ Reset</button>
+                    <button id="clue-btn">Je craque...</button>
                     <button id="mute-btn">♪</button>
                 </div>
                 <div class="moves-progress-container">
@@ -75,6 +76,23 @@
     <!-- end screen overlay -->
     <div id="end-screen" class="overlay hidden">
         <div class="end-screen-content">
+        </div>
+    </div>
+
+    <!-- clue overlay -->
+    <div id="clue-overlay" class="overlay hidden">
+        <div class="overlay-content">
+            <div class="clue-container">
+                <div class="clue-speaker-container">
+                    <img id="clue-speaker-image" src="" alt="Speaker" class="clue-speaker-image">
+                    <div id="clue-speaker-name" class="clue-speaker-name"></div>
+                </div>
+                <div id="clue-image-container" class="clue-image-container hidden">
+                    <img id="clue-image" src="" alt="Clue">
+                </div>
+                <div id="clue-text" class="clue-text"></div>
+                <button id="close-clue-btn" class="clue-close-btn">Aaaahhh</button>
+            </div>
         </div>
     </div>
 

@@ -35,7 +35,11 @@ class AssetPreloader {
                 'assets/images/lock.png',
                 'assets/images/rock.png',
                 'assets/images/spikes_down.png',
-                'assets/images/spikes_up.png'
+                'assets/images/spikes_up.png',
+                'assets/images/JeanMichelExplications.png',
+                'assets/images/clues/level4.png',
+                'assets/images/clues/Level6.png',
+                'assets/images/clues/Level7.png'
             ],
             audio: [
                 'assets/musics/background-music.mp3'

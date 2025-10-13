@@ -177,7 +177,7 @@ const LEVEL_CLUES = {
         speaker: "Jean-Michel Explications",
         speakerImage: "assets/images/JeanMichelExplications.png",
         text: "Je me demande bien où ce rocher peut aller pour ne pas me gêner...",
-        image: "assets/images/clues/Level4.png"
+        image: "assets/images/clues/level4.png"
     },
     4: {
         speaker: "Jean-Michel Explications",

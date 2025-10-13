@@ -11,6 +11,7 @@ class AssetPreloader {
                 'assets/images/champ_sourire.png',
                 'assets/images/champ_win.png',
                 'assets/images/champ_woups.png',
+                'assets/images/champ_down.png',
                 'assets/images/Champi.png',
                 'assets/images/ChampiAngry.png',
                 'assets/images/ChampUuuu.png',

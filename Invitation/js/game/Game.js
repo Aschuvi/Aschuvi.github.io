@@ -10,7 +10,7 @@ class Game {
 
     constructor(levels) {
         this.levels = levels;
-        this.currentLevelIndex = 0;
+        this.currentLevelIndex = this.loadProgress(); // Load saved progress
         this.currentLevel = null;
         this.isGameActive = false;
         this.currentQuestion = null;
@@ -22,7 +22,7 @@ class Game {
         this.playerFacingRight = false; // Track player direction
         this.blockRender = false;
         this.enemyHitOnLastMove = null;
-        Game.debug('constructor', { levels: levels.length, inviteName: this.inviteName });
+        Game.debug('constructor', { levels: levels.length, inviteName: this.inviteName, savedLevel: this.currentLevelIndex });
     }
 
     init() {
@@ -30,11 +30,18 @@ class Game {
         this.setupControls();
         this.setupClickControls();
         this.setupResetButton();
+        this.setupClueButton();
         this.setupDialogueControls();
         this.setupBackgroundMusic();
         this.isGameActive = false;
         this.render();
-        this.showIntroDialogue();
+        
+        // Only show intro dialogue if starting from the beginning
+        if (this.currentLevelIndex === 0) {
+            this.showIntroDialogue();
+        } else {
+            this.isGameActive = true;
+        }
     }
 
     showIntroDialogue() {
@@ -79,6 +86,66 @@ class Game {
             this.isGameActive = true;
             this.render();
         }, 'level');
+    }
+
+    setupClueButton() {
+        const clueBtn = document.getElementById('clue-btn');
+        const clueOverlay = document.getElementById('clue-overlay');
+        const closeClueBtn = document.getElementById('close-clue-btn');
+        
+        clueBtn.addEventListener('click', () => {
+            this.showClue();
+        });
+        
+        closeClueBtn.addEventListener('click', () => {
+            clueOverlay.classList.add('hidden');
+        });
+        
+        // Close clue when clicking outside
+        clueOverlay.addEventListener('click', (event) => {
+            if (event.target === clueOverlay) {
+                clueOverlay.classList.add('hidden');
+            }
+        });
+    }
+
+    showClue() {
+        const clue = LEVEL_CLUES[this.currentLevelIndex];
+        if (!clue) {
+            console.warn('No clue available for level:', this.currentLevelIndex);
+            return;
+        }
+        
+        const clueOverlay = document.getElementById('clue-overlay');
+        const clueText = document.getElementById('clue-text');
+        const clueImageContainer = document.getElementById('clue-image-container');
+        const clueImage = document.getElementById('clue-image');
+        const clueSpeakerImage = document.getElementById('clue-speaker-image');
+        const clueSpeakerName = document.getElementById('clue-speaker-name');
+        
+        // Set speaker information
+        if (clue.speaker) {
+            clueSpeakerName.textContent = clue.speaker;
+        }
+        if (clue.speakerImage) {
+            clueSpeakerImage.src = clue.speakerImage;
+        }
+        
+        // Set clue text
+        clueText.textContent = clue.text;
+        
+        // Set clue image if available
+        if (clue.image) {
+            clueImage.src = clue.image;
+            clueImageContainer.classList.remove('hidden');
+        } else {
+            clueImageContainer.classList.add('hidden');
+        }
+        
+        // Show overlay
+        clueOverlay.classList.remove('hidden');
+        
+        Game.debug('Game.showClue', { level: this.currentLevelIndex, speaker: clue.speaker, hasImage: !!clue.image });
     }
 
     setupBackgroundMusic() {
@@ -222,6 +289,7 @@ class Game {
         successOverlay.classList.add('hidden');
         questionContainer.classList.add('hidden');
         this.currentLevelIndex++;
+        this.saveProgress(); // Save progress when advancing to next level
         this.currentQuestionIndex = 0; // Reset question index for new level
         this.loadLevel(this.currentLevelIndex);
         this.isGameActive = true;
@@ -276,6 +344,9 @@ class Game {
             levelIndex: levelIndex,
             hasLevels: !!this.levels[levelIndex]
         });
+
+        // Hide success overlay when loading a level
+        document.getElementById('success-overlay').classList.add('hidden');
 
         if (levelIndex >= this.levels.length) {
             this.gameWon();
@@ -626,6 +697,7 @@ class Game {
 
     gameWon() {
         this.isGameActive = false;
+        this.clearProgress(); // Clear saved progress when game is completed
         this.generateEndScreenContent();
         document.getElementById('end-screen').classList.remove('hidden');
     }
@@ -660,5 +732,40 @@ class Game {
         confirmBtn.addEventListener('click', () => {
             window.open('https://docs.google.com/forms/d/e/1FAIpQLSe_F1-3TUCHwfAIujcCLmcBvGux_CMhmxeozdhqtrDtE6w2iA/viewform?usp=header', '_blank');
         });
+    }
+
+    // Save current level progress to localStorage
+    saveProgress() {
+        try {
+            localStorage.setItem('invitationGameProgress', this.currentLevelIndex.toString());
+            Game.debug('saveProgress', { level: this.currentLevelIndex });
+        } catch (e) {
+            console.warn('Failed to save progress:', e);
+        }
+    }
+
+    // Load saved level progress from localStorage
+    loadProgress() {
+        try {
+            const savedLevel = localStorage.getItem('invitationGameProgress');
+            if (savedLevel !== null) {
+                const level = parseInt(savedLevel, 10);
+                Game.debug('loadProgress', { savedLevel: level });
+                return level;
+            }
+        } catch (e) {
+            console.warn('Failed to load progress:', e);
+        }
+        return 0; // Default to first level
+    }
+
+    // Clear saved progress (useful for testing or starting over)
+    clearProgress() {
+        try {
+            localStorage.removeItem('invitationGameProgress');
+            Game.debug('clearProgress', 'Progress cleared');
+        } catch (e) {
+            console.warn('Failed to clear progress:', e);
+        }
     }
 }

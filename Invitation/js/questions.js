@@ -154,6 +154,17 @@ const LEVEL_QUESTIONS = {
 };
 
 // Clues for each level
+// Solutions for each level (moves to complete the level)
+const LEVEL_SOLUTIONS = {
+    0: ['down', 'left', 'left', 'left', 'left', 'left', 'left', 'left', 'down', 'down', 'left', 'down', 'down', 'right', 'right', 'up', 'up', 'right', 'right', 'right', 'right', 'down', 'right'],
+    1: ['right', 'up', 'up', 'up', 'up', 'up', 'up', 'right', 'right', 'right', 'down', 'right', 'right', 'down', 'down', 'down', 'down', 'left', 'left', 'down'],
+    2: ['left', 'left', 'left', 'left', 'left', 'down', 'down', 'down', 'down', 'left', 'left', 'up', 'down', 'right', 'right', 'right', 'right', 'right', 'right', 'right', 'right', 'up', 'up', 'up', 'up', 'up', 'up'],
+    3: ['down', 'down', 'down', 'right', 'down', 'down', 'right', 'right', 'right', 'up', 'left', 'left', 'up', 'up', 'right', 'down', 'down', 'right', 'right', 'right', 'down'],
+    4: ['down', 'down', 'down', 'down', 'right', 'right', 'right', 'right', 'up', 'right', 'down', 'up', 'left', 'left', 'up', 'up', 'up', 'up', 'left', 'up', 'up', 'right', 'up'],
+    5: ['left', 'down', 'right', 'right', 'down', 'down', 'left', 'left', 'down', 'left', 'left', 'down', 'down', 'right', 'right', 'right', 'right', 'up', 'up', 'left', 'left', 'down', 'down', 'down', 'down', 'right', 'right', 'right', 'up', 'up', 'right', 'right', 'right', 'right', 'down', 'down', 'left', 'left', 'down', 'down'],
+    6: ['right', 'up', 'up', 'right', 'right', 'right', 'right', 'up', 'down', 'right', 'right', 'left', 'up', 'up', 'right', 'right', 'right', 'right', 'down', 'down', 'right', 'right', 'up', 'up', 'right', 'left', 'left', 'left', 'up', 'up', 'up', 'left', 'up']
+};
+
 const LEVEL_CLUES = {
     0: {
         speaker: "Jean-Michel Explications",

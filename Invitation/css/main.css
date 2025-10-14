@@ -1086,6 +1086,14 @@ header h1 {
     text-align: center;
 }
 
+.clue-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 .clue-close-btn {
     background: linear-gradient(135deg, #bdbdbd 0%, #7e7e7e 100%);
     color: white;
@@ -1108,6 +1116,34 @@ header h1 {
 .clue-close-btn:active {
     transform: translateY(0);
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.give-up-btn {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.give-up-btn:hover {
+    background: linear-gradient(135deg, #ff5252 0%, #d63031 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+
+.give-up-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.give-up-btn.hidden {
+    display: none;
 }
 
 .end-screen-content h1 {

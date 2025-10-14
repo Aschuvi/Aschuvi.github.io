@@ -22,6 +22,7 @@ class Game {
         this.playerFacingRight = false; // Track player direction
         this.blockRender = false;
         this.enemyHitOnLastMove = null;
+        this.clueOpenCount = this.loadClueOpenCount(); // Track clue opens per level
         Game.debug('constructor', { levels: levels.length, inviteName: this.inviteName, savedLevel: this.currentLevelIndex });
     }
 
@@ -92,6 +93,7 @@ class Game {
         const clueBtn = document.getElementById('clue-btn');
         const clueOverlay = document.getElementById('clue-overlay');
         const closeClueBtn = document.getElementById('close-clue-btn');
+        const giveUpBtn = document.getElementById('give-up-btn');
         
         clueBtn.addEventListener('click', () => {
             this.showClue();
@@ -107,6 +109,13 @@ class Game {
                 clueOverlay.classList.add('hidden');
             }
         });
+        
+        // Setup give up button
+        if (giveUpBtn) {
+            giveUpBtn.addEventListener('click', () => {
+                this.handleGiveUp();
+            });
+        }
     }
 
     showClue() {
@@ -116,12 +125,20 @@ class Game {
             return;
         }
         
+        // Increment clue open count for current level
+        if (!this.clueOpenCount[this.currentLevelIndex]) {
+            this.clueOpenCount[this.currentLevelIndex] = 0;
+        }
+        this.clueOpenCount[this.currentLevelIndex]++;
+        this.saveClueOpenCount();
+        
         const clueOverlay = document.getElementById('clue-overlay');
         const clueText = document.getElementById('clue-text');
         const clueImageContainer = document.getElementById('clue-image-container');
         const clueImage = document.getElementById('clue-image');
         const clueSpeakerImage = document.getElementById('clue-speaker-image');
         const clueSpeakerName = document.getElementById('clue-speaker-name');
+        const giveUpBtn = document.getElementById('give-up-btn');
         
         // Set speaker information
         if (clue.speaker) {
@@ -142,10 +159,22 @@ class Game {
             clueImageContainer.classList.add('hidden');
         }
         
+        // Show/hide give up button based on open count
+        if (this.clueOpenCount[this.currentLevelIndex] >= 5) {
+            giveUpBtn.classList.remove('hidden');
+        } else {
+            giveUpBtn.classList.add('hidden');
+        }
+        
         // Show overlay
         clueOverlay.classList.remove('hidden');
         
-        Game.debug('Game.showClue', { level: this.currentLevelIndex, speaker: clue.speaker, hasImage: !!clue.image });
+        Game.debug('Game.showClue', { 
+            level: this.currentLevelIndex, 
+            speaker: clue.speaker, 
+            hasImage: !!clue.image,
+            openCount: this.clueOpenCount[this.currentLevelIndex]
+        });
     }
 
     setupBackgroundMusic() {
@@ -767,5 +796,84 @@ class Game {
         } catch (e) {
             console.warn('Failed to clear progress:', e);
         }
+    }
+
+    // Save clue open count to localStorage
+    saveClueOpenCount() {
+        try {
+            localStorage.setItem('invitationGameClueCount', JSON.stringify(this.clueOpenCount));
+            Game.debug('saveClueOpenCount', this.clueOpenCount);
+        } catch (e) {
+            console.warn('Failed to save clue open count:', e);
+        }
+    }
+
+    // Load clue open count from localStorage
+    loadClueOpenCount() {
+        try {
+            const savedCount = localStorage.getItem('invitationGameClueCount');
+            if (savedCount !== null) {
+                const count = JSON.parse(savedCount);
+                Game.debug('loadClueOpenCount', count);
+                return count;
+            }
+        } catch (e) {
+            console.warn('Failed to load clue open count:', e);
+        }
+        return {}; // Default to empty object
+    }
+
+    // Handle give up button click
+    handleGiveUp() {
+        Game.debug('Game.handleGiveUp', { level: this.currentLevelIndex });
+        
+        // Hide clue overlay
+        document.getElementById('clue-overlay').classList.add('hidden');
+        
+        // Reset clue count for this level
+        this.clueOpenCount[this.currentLevelIndex] = 0;
+        this.saveClueOpenCount();
+        
+        // Get the solution for the current level
+        const solution = LEVEL_SOLUTIONS[this.currentLevelIndex];
+        if (!solution) {
+            console.warn('No solution available for level:', this.currentLevelIndex);
+            return;
+        }
+        
+        // Reset the level first
+        this.currentLevel.reset();
+        this.render();
+        
+        // Play the solution moves automatically
+        this.playSolutionMoves(solution);
+    }
+
+    // Play a series of moves automatically with delays
+    playSolutionMoves(moves) {
+        let moveIndex = 0;
+        this.isGameActive = true; // Ensure game is active for moves
+        
+        const executeNextMove = () => {
+            if (moveIndex >= moves.length) {
+                // All moves executed, let natural level completion take over
+                Game.debug('Game.playSolutionMoves', 'All moves completed');
+                return;
+            }
+            
+            const direction = moves[moveIndex];
+            Game.debug('Game.playSolutionMoves', { moveIndex, direction });
+            
+            // Execute the move
+            this.handleMove(direction);
+            
+            moveIndex++;
+            
+            // Schedule next move after 0.5s
+            setTimeout(executeNextMove, 500);
+        };
+        
+        // Start executing moves
+        setTimeout(executeNextMove, 500);
     }
 }

@@ -1,0 +1,212 @@
+/* Level 1 — "Le PACS" */
+
+.pacs-level {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 16px 16px 0;
+}
+
+.pacs-document {
+  position: relative;
+  background: #f4f1e8;
+  color: #232019;
+  border-radius: 10px;
+  padding: 20px 18px 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+@keyframes pacs-shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
+.pacs-document.pacs-shake {
+  animation: pacs-shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.pacs-doc-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.pacs-doc-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: #6b6455;
+}
+
+.pacs-doc-title {
+  margin: 6px 0 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.pacs-doc-intro {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+
+.pacs-clauses {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.pacs-clause {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.pacs-clause:active {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.pacs-clause input[type='checkbox'] {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.pacs-clause-box {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+  border: 2px solid #232019;
+  border-radius: 4px;
+  position: relative;
+  background: #fff;
+}
+
+.pacs-clause input[type='checkbox']:checked + .pacs-clause-box::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 1px;
+  width: 6px;
+  height: 12px;
+  border: solid #232019;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.pacs-clause input[type='checkbox']:focus-visible + .pacs-clause-box {
+  outline: 2px solid #1b6fd9;
+  outline-offset: 2px;
+}
+
+.pacs-clause-text {
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.pacs-signature-block {
+  border-top: 1px dashed #a39d8b;
+  padding-top: 14px;
+}
+
+.pacs-signature-label {
+  font-size: 0.8rem;
+  color: #6b6455;
+  margin-bottom: 6px;
+}
+
+.pacs-signature-pad {
+  height: 110px;
+  background: #fff;
+  border: 1px solid #c9c2ae;
+  border-radius: 6px;
+  touch-action: none;
+}
+
+.pacs-link-btn {
+  margin-top: 8px;
+  background: none;
+  border: none;
+  padding: 8px 0;
+  color: #6b6455;
+  font-size: 0.78rem;
+  text-decoration: underline;
+}
+
+.pacs-stamp {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-12deg) scale(0.7);
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 6px 18px;
+  border: 6px solid currentColor;
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.pacs-stamp--visible {
+  opacity: 0.9;
+  transform: translate(-50%, -50%) rotate(-12deg) scale(1);
+}
+
+.pacs-stamp--failure {
+  color: var(--danger, #d9584f);
+}
+
+.pacs-stamp--success {
+  color: var(--success, #4caf7d);
+}
+
+.pacs-footer {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 0 max(20px, env(safe-area-inset-bottom, 20px));
+}
+
+.pacs-attempt {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.pacs-submit-btn {
+  width: 100%;
+  max-width: 320px;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent);
+  color: var(--accent-text);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.pacs-submit-btn:active {
+  transform: scale(0.98);
+}
+
+.pacs-submit-btn:disabled {
+  opacity: 0.6;
+}
+
+.pacs-done-message {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
